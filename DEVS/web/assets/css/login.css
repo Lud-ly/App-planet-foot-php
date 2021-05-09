@@ -1,0 +1,194 @@
+.main-section{
+    overflow-x: hidden !important;
+}
+
+* a {
+    cursor: pointer;
+}
+
+* a:hover {
+    text-decoration: none;
+}
+
+.display-5{
+    color: #7fc241;
+    font-weight: 500;
+}
+
+.colonne {
+    min-width: 320px!important;
+    min-height: 365px!important;
+}
+
+.card {
+    font-size: 1em;
+    border-radius: 5px!important;
+    height: 100%;
+}
+
+.card-header {
+    background-color: #7fc241!important;
+    color: rgb(255, 255, 255);
+}
+
+#result {
+    padding-left : 10px;
+    font-size: 1em;
+}
+
+.short {
+    color: #FF0000;
+    font-size: small;
+}
+
+.weak {
+    color: orange;
+    font-size: 0.8rem;
+}
+
+.good {
+    color: blue;
+    font-size: 0.8rem;
+}
+
+.strong {
+    color: limegreen;
+    font-size: 0.8rem;
+}
+
+.btn-valid {
+    background-color: #de1f85;
+    color: rgb(255, 255, 255);
+}
+
+.btn-vert {
+    background-color: #7fc241;
+    color: rgb(255, 255, 255);
+} 
+
+.btn-vert a {
+    color: rgb(255, 255, 255)!important;
+}
+
+.btn-vert a:hover {
+    color: rgb(255, 255, 255)!important;
+}
+
+.btn-bleu {
+    background-color: #00aaff;
+    color: rgb(255, 255, 255);
+}
+
+#connexion{
+    min-width: 380px;
+}
+
+#inscription{
+    min-width: 280px;
+}
+.bordure {
+    border: 1px solid #7fc241;
+    border-radius: 5px;
+    /*background: #eaf9df;*/
+    height: 100%;
+}
+
+.picto-item {
+    position: relative;  /*les .picto-item deviennent référents*/
+    cursor: help;
+    border-radius: 50%;
+  }
+  
+  /* on génère un élément :after lors du survol et du focus :*/
+  
+  .picto-item:hover:after,
+  .picto-item:focus:after {
+    content: attr(aria-label);  /* on affiche aria-label */
+    position: absolute;
+    top: -7em;
+    left: 50%;
+      transform: translateX(-50%); /* on centre horizontalement  */
+    z-index: 1; /* pour s'afficher au dessus des éléments en position relative */
+    white-space: wrap;  /* on interdit le retour à la ligne*/
+    padding: 5px 14px;
+    width: 250px;
+    background: #de1f85;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  /* on génère un second élément en :before pour la flèche */
+  
+  [aria-label]:hover:before,
+  [aria-label]:focus:before {
+    content: "▼";
+    position: absolute;
+    top: -1em;
+      left: 50%;
+      transform: translateX(-50%); /* on centre horizontalement  */
+    font-size: 20px;
+    color: #de1f85;
+  }
+  
+  /* pas de contour durant le :focus */
+  [aria-label]:focus {
+    outline: none;
+  }
+
+.hide {
+    display: none!important;
+}
+
+.modal-title{
+    color: #00aaff;
+    font-weight: 500;
+}
+.signin-link {
+    font-size: 1.2em;
+}
+
+.signin-link:hover {
+    /*font-weight: 1.2em;*/
+    color: #00aaff;
+    text-decoration: none;
+}
+
+
+.field-icon {
+    float: right;
+    margin-right: 10px;
+    margin-top: -29px;
+    position: relative;
+    z-index: 2;
+}
+
+.field-icon>img{
+    width: 20px;
+}
+
+.g-recaptcha {
+    margin: 0 auto;
+    width: 304px;
+  }
+
+.marge{
+    padding: 10px!important;
+}
+
+#genereMail{
+    color: #7fc241;
+    padding: 2px;
+    font-weight: 6s00;
+}
+  
+/* CODE VIRGINIE */
+#motDePasse
+{
+    float: right;
+}
+
+#redirectionPageInscription
+{
+    color: #007bff;
+}

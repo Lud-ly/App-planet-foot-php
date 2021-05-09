@@ -1,0 +1,1 @@
+insert into article (id_center, article_title, article_subtitle, article_content, article_url_img, article_date, article_time, article_author) values (1, "@article_title","@article_subtitle", "@article_content", "@article_url_img", "@article_date", "@article_time", "@article_author");

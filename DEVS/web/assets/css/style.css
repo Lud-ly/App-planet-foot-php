@@ -1,0 +1,29 @@
+:root {
+    --first: #7FC241;
+}
+
+
+h1 {
+    text-align: center;
+    font-weight: 800;
+    color: #000000;
+    font-size: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.ion {
+    font-size: 32px;
+}
+
+.text_center_product{
+    text-align: center;
+    background-color: var(--first);
+    color: white;
+    border-radius: 20%;
+    box-sizing: border-box;
+}
+
+.img {
+    width: auto;
+}

@@ -1,0 +1,180 @@
+<!-- extern styles -->
+<link rel="stylesheet" href="assets/css/signin_login.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!-- scripts used -->
+<script src="assets/js/signin_login.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- fenetre modale confirmation d'envoi du mail d'inscription -->
+<div class="modal fade" id="modal1" name="modal1" tabindex="-1" role="dialog" aria-labelledby="fenetreModale"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="titre_modal1">Confirmation d'inscription</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- modal description -->
+            <div class="modal-body" id="contenu_modal1">
+                <p>Félicitations ! Votre demande d'inscription est prise en compte !</p>
+                <p>Néanmoins, pour finaliser la création de votre compte, nous aurions besoin que vous cliquiez sur le
+                    lien que vous venez de recevoir dans votre boite mail. Si vous ne le voyez pas, pensez à regarder
+                    dans le dossier "spam".</p>
+                <p>A bientôt sur l'AF-Panier !</p>
+            </div>
+            <div class="modal-footer">
+                <!-- modal buttons -->
+                <button class="mt-2 btn btn-valid btn-md" onclick="window.location.href='login'">Fermer la
+                    fenêtre</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- fenetre modale erreur formulaire -->
+<div class="modal fade" id="modal2" name="modal2" tabindex="-1" role="dialog" aria-labelledby="fenetreModale"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="titre_modal2">Erreur détectée</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- modal description -->
+            <div class="modal-body" id="contenu_modal2">
+                <p>Erreur au contrôle des données, vérifiez les informations en rouge</p>
+            </div>
+            <div class="modal-footer">
+                <!-- modal buttons -->
+                <button class="mt-2 btn btn-valid btn-md" onclick='signin_cacherModal(2)'>Fermer la fenêtre</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--formulaire d'inscription -->
+<form class="form" id="formulaire" method="POST" action=" " onSubmit=" ">
+    <!-- Champs civilité -->
+    <h1 class="titleMain">Votre inscription en ligne</h2>
+    <div class="row mt-4">
+        <div class="col-md-3 align-self-strech"></div>
+        <div class="col-md-3 align-self-strech mt-2" id="etape1">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h4 class="mb-0 mt-0">Votre profil</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Civilite -->
+                    <!--
+                    <div class="form-check form-check-inline">
+                        
+                        <input class="form-check-input" id="madame" name="civilite" autocomplete="off" type="radio"
+                            value="madame" />
+                        <label id="genreF" class="form-check-label" for="madame">Madame</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="monsieur" name="civilite" autocomplete="off" type="radio"
+                            value="monsieur" />
+                        <label id="genreH" class="form-check-label" for="monsieur">Monsieur</label>
+                    </div>
+                    -->
+                    <div class="form-group">
+                        <label for="nom" id="labelNom">Votre nom</label>
+                        <input type="text" class="form-control form-control-md inputMain" name="nom" id="nom"
+                            required="" autocomplete="family-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom" id="labelPrenom">Votre prénom</label>
+                        <input type="text" class="form-control form-control-md inputMain" id="prenom" required=""
+                            autocomplete="name">
+                    </div>
+                    <div class="form-group mb-0">
+                        <label for="telephone" id="labelTelephone">Votre numéro de téléphone</label>
+                        <input type="tel" class="form-control form-control-md inputMain" id="telephone" required=""
+                            autocomplete="tel">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Champs identifiants -->
+        <div class="col-md-3 align-self-strech mt-2" id="etape2">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h4 class="mb-0 mt-0">Vos identifiants</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="email" id="labelEmail">Votre adresse mail</label>
+                        <input type="text" class="form-control form-control-md inputMain" name="email" id="email"
+                            required="" autocomplete="email">
+                        <div class="invalid-feedback"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="labelPwd" name="labelPwd" for="password">Choisissez un mot de passe</label>
+                        <a class="picto-item"
+                            aria-label="Le mot de passe doit contenir 8 caractères minimum avec des lettres, des chiffres et des caractères spéciaux.">
+                            <i class="text-muted far fa-question-circle"></i>
+                        </a>
+                        <input type="password" class="form-control form-control-md inputMain" id="password"
+                            name="password" required="" autocomplete="new-password" value=""
+                            onKeyUp="signin_verifierSaisiePwd()">
+                        <span toggle="#password" class="field-icon toggle-password"><img
+                                src="assets\img\eye.png"></span>
+                        <span class="small ml-2 hide" id="result" name="result"></span>
+                        <small id="passwordHelpBlock" class="form-text text-muted">
+                        </small>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label id="labelConfirmePwd" name="labelConfirmePwd" for="confirmePassword">Confirmez le mot de
+                            passe</label>
+                        <input type="password" class="form-control form-control-md inputMain" id="confirmePassword"
+                            name="confirmePassword" required="" autocomplete="new-password"
+                            onKeyUp="signin_verifierSaisiePwd()">
+                        <span toggle="#confirmePassword" class="field-icon toggle-password"><img
+                                src="assets\img\eye.png"></span>
+                        <div>
+                            <span class="small ml-2 hide" id="statutPwd"></span>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="form-group mb-0 text-muted">
+                        <input class="ml-2" id="showPassword" name="showPassword" type="checkbox"
+                            onclick="signin_affichePwd()" htmlEscape="true" autocomplete="off" />
+                        <label id="labelShowPwd" name="labelShowPwd" class="small" for="showPassword">Montrer les mots
+                            de passe</label>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 align-self-strech"></div>
+    </div>
+    <!-- Champs confirmation -->
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+            <div class="form-check marge">
+                <input class="form-check-input" type="checkbox" id="checkLecture" name="checkLecture">
+                <label class="form-check-label" for="checkLecture" id="labelCheck">J'ai lu et accepte les <a href="cgv_visible" id="lienCGV">conditions générales d'utilisation </a>du site</label>
+            </div>
+            <!--
+            <div class="marge">
+                <div class="g-recaptcha" data-sitekey="6LdGV9EUAAAAAFPOyNL7ZEIF4tdLjI05pqAlqU4g"></div>
+            </div>
+            -->
+            <div class="marge">   
+                <a type="button" name='envoiFormulaire' class="connexion" onclick="signin_envoiFormulaire()">Lancer mon inscription</a>
+            </div> 
+        </div>
+    </div>
+</form>
+
+<!-- scripts recaptcha google -->
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+
+</script>
+
+<script src="assets/js/indexdb.js"></script>

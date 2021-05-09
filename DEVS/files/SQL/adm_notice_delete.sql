@@ -1,0 +1,1 @@
+delete from article where id_article= @id_article

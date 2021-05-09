@@ -1,0 +1,14 @@
+/**************************** MODALE DE MODIFICATION DU TEXTE ****************************/
+.modal-content
+{
+    width: 200%;
+    display:flex;
+    position:relative;
+    right:200;
+}
+
+#texteEdit
+{
+height: 100px;
+width: 100%;
+}

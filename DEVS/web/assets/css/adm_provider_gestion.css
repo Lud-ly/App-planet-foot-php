@@ -1,0 +1,59 @@
+
+            input[type=text] 
+            {
+				border: none;
+			    border-bottom: 1px solid #FF0000;
+			}
+            .input_nombre 
+            {
+			    padding-left: 18px;
+				background-image: url(../img/number.png);
+				background-repeat: no-repeat;
+				background-position: left;
+			}
+            button 
+            {
+				text-decoration: none;
+				font-family: Verdana, Arial;
+				border-radius: 4px 4px 4px 4px;
+				cursor: pointer;
+				height: 40px;
+			}
+            .btn_action 
+            {
+				background-color: #7fc241;
+				color: white;
+				border: 2px solid #7fc241;
+			}
+            .btn_action:hover 
+            {
+				background-color: White;
+				color: #7fc241;
+				border: 2px solid #7fc241;
+			  	transition-duration: 2s;
+			}
+            .btn_save 
+            {
+				background-color: #ff0000;
+				color: white;
+				border: 2px solid #ff0000;
+			}
+            .btn_save:hover 
+            {
+				background-color: White;
+				color: #ff0000;
+				border: 2px solid #ff0000;
+			  	transition-duration: 1s;
+			}
+
+			.page-item.active .page-link {
+				background-color: #7fc241;
+				border-color: #7fc241;
+			}
+
+
+
+            .hide 
+            {
+				display: none;
+			}

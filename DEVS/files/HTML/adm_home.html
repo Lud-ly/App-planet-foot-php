@@ -1,0 +1,119 @@
+<!----------------->
+<!-- styles used -->
+<!----------------->
+<link rel="stylesheet" href="assets/css/adm_home.css">
+
+<!------------------>
+<!-- scripts used -->
+<!------------------>
+<script type="text/javascript" src="assets/js/adm_home.js"></script>
+
+
+
+<div class="container container-home" id="adm_home">
+    <!-- CONTAINER STATISTIQUES -->
+    <div class="d-flex mt-4 col-sm-12 page_title" id="statistique">
+        <h2 class="titrePage">STATISTIQUES</h2>
+    </div>
+        <div class="row">
+            <!-- Statistiques -->
+            <div class="container-home-item col-sm d-flex align-items-end flex-column" id="adm_stat">
+                <h2>Mes statistiques <img src="assets/img/dashboard.png" alt="Icone dashboard" class="icon"/></h2>
+                <p class="mx-auto">Visualiser les statistiques</p>
+                <a href="adm_dash"><button id="adm_stat-button">Accéder aux statistiques </button></a>
+            </div> 
+            <!-- Voir le site en tant que client -->
+            <div class="container-home-item col-sm d-flex align-items-end flex-column" id="adm_clientView" >
+                <h2>Voir le site en tant que client <img src="assets/img/ecran.png" alt="Icone écran" class="icon"/></h2>
+                <p class="mx-auto">Visualiser le site comme les clients</p>
+                <button id="enable_customer_mode"> Accéder au site</button>
+            </div>
+        </div>
+
+    <!-- CONTAINER GESTION DES PANIERS ET DES COMMANDES -->
+    <div class="d-flex mt-4 col-sm-12 page_title" id="panierEtCommande">
+        <h2 class="titrePage">GESTION DES PANIERS ET DES COMMANDES</h2>
+    </div>
+        <div class="row">
+            <!-- Gestion des producteurs -->
+            <div class="container-home-item col-sm d-flex align-items-end flex-column" id="adm_supplier" >
+                <h2>Producteurs <img src="assets/img/provider.png" alt="Icone producteurs" class="icon"/></h2>
+                <p>Retrouvez dans cette section la liste de tous les producteurs. Ajoutez-en de nouveaux, supprimez-les ou mettez-les à jours.</p>
+                <a href="adm_supplier"><button> Accéder aux Producteurs</button></a>
+            </div>
+            <!-- Gestion des paniers -->
+            <div class="container-home-item col-sm d-flex align-items-end flex-column" id="adm_offer">
+                <h2>Paniers <img src="assets/img/offer.png" alt="Icone offre" class="icon"/></h2>
+                <p>Retrouvez dans cette section les types de paniers proposés à la vente. Ajoutez-en de nouveaux, supprimez-les ou mettez-les à jours. </p>
+                <a href="adm_offer"><button> Accéder aux Paniers</button></a>
+            </div>  
+            <!-- Gestion des commandes -->     
+            <div class="container-home-item col-sm d-flex align-items-end flex-column" id="adm_order">
+                <h2>Commandes  <img src="assets/img/order.png" alt="Icone commandes" class="icon"/></h2>
+                <p>Retrouvez dans cette section toutes les commandes effectuées par les utilisateurs. </p>
+                <a href="adm_purchase"><button> Accéder aux Commandes</button></a>
+            </div>
+            <!-- Gestion des promotions -->
+            <div  class="container container-home-item col-sm d-flex align-items-end flex-column" id="adm_promo">  
+                <h2>Promotions <img src="assets/img/promo.png" alt="Icone promo" class="icon"/></h2>
+                <p>Retrouvez dans cette section les promotions. Effectuez des mises à jour, renseignez-en de nouvelles ou supprimez les anciennes </p>
+                <a href="adm_promo"><button> Accéder aux Promotions</button></a> 
+            </div>
+        </div> 
+
+    <!-- CONTAINER GESTION DU CONTENU DU SITE -->
+    <div class="d-flex mt-4 col-sm-12 page_title" id="contenu">
+        <h2 class="titrePage">GESTION DU CONTENU DU SITE</h2>
+    </div>
+        <div class="row">
+            <!-- Gestion des actualités -->
+            <div class="container container-home-item col-sm d-flex align-items-end flex-column" id="adm_notice">
+                <h2>Actualités <img src="assets/img/notice.png" alt="Icone actus" class="icon"/></h2>
+                <p>Retrouvez dans cette section les actualités de l'Afpanier. Effectuez des mises à jour, renseignez-en de nouvelles ou supprimez les anciennes</p>
+                <a href="adm_notice"><button> Accéder aux Actualités</button></a>
+            </div></br>
+            <!-- Pages statiques -->
+            <div class="container-home-item col-sm d-flex align-items-end flex-column" id="adm_text">
+                <h2>Textes <img src="assets/img/page.png" alt="Icone page" class="icon"/></h2>
+                <p>Accéder aux textes modifiables</p>
+                <a href="cgv_gestion"><button> Accéder aux textes</button></a>
+            </div>
+            <!-- FAQ -->
+            <div class="container-home-item col-sm d-flex align-items-end flex-column" id="adm_faq">
+                <h2>FAQ <img src="assets/img/faq.png" alt="Icone faq" class="icon"/></h2>
+                <p>Retrouvez dans cette section la foire aux questions concernant le projet AFPANIER et mettez-la à jours</p>
+                <a href="faq_gestion"><button> Accéder à la FAQ</button></a>
+            </div> 
+            <!-- Contact -->
+            <div class="container-home-item col-sm d-flex align-items-end flex-column" id="adm_contact">
+                <h2>Contact <img src="assets/img/contact.png" alt="Icone contact" class="icon"/></h2>
+                <p>Retrouvez dans cette section les demandes d'informations concernant le projet AFPANIER et mettez-les à jours</p>
+                <a href="adm_contact"><button> Accéder à la page Contact</button></a>
+            </div> 
+        </div>
+
+    <!-- CONTAINER GESTION DES UTILISATEURS -->
+    <div class="d-flex mt-4 col-sm-12 page_title" id="utilisateur">
+        <h2 class="titrePage">GESTION DES UTILISATEURS</h2>
+    </div>
+        <div class="row">
+            <!-- Gestion des clients -->
+            <div class="container-home-item col-sm d-flex align-items-end flex-column" id="adm_client">
+                <h2>Clients <img src="assets/img/client.png" alt="Icone client" class="icon"/></h2>
+                <p>Retrouvez dans cette section la liste de tous les clients ainsi que les différentes informations qui leurs sont rattachées</p>
+                <a href="adm_client"><button> Accéder aux Clients</button></a>
+            </div>
+            <!-- Gestion des administrateurs -->
+            <div class="container container-home-item col-sm d-flex align-items-end flex-column" id="adm_admin">
+                <h2>Administrateurs <img src="assets/img/admin.png" alt="Icone administrateur" class="icon"/></h2>
+                <p>Retrouvez dans cette section la liste des administrateurs</p>
+                <a href="adm_admin"><button> Accéder aux Administrateurs</button></a>
+            </div>
+            <!-- Configuration des paramètres -->
+            <div class="container container-home-item col-sm d-flex align-items-end flex-column" id="adm_setting">
+                <h2>Paramètres <img src="assets/img/setting.png" alt="Icone paramètres" class="icon"/></h2>
+                <p>Retrouvez dans cette section les paramètres du site</p>
+                <a href="adm_setting"><button> Accéder aux Paramètres</button></a>
+            </div>
+        </div>
+</div>      

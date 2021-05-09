@@ -1,0 +1,122 @@
+<base href="<?= $GLOBALS_INI["BASE_HREF"] ?>">
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Planet-foot Project</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/toastr.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/commun.css">
+    <script type="text/javascript" src="assets/js/jquery v3.4.1.js"></script>
+    <script type="text/javascript" src="assets/js/proto.js"></script>
+    <script type="text/javascript" src="assets/js/popper.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/toastr.js" async></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/footer.js"></script>
+    <script type="text/javascript" src="assets/js/commun.js"></script>
+</head>
+
+<!--BODY -->
+
+<body class="main-body">
+
+
+    <!--HEADER -->
+    <div class="main-header">
+        <?php 
+            // si la nouvelle page est une page admin :
+            if ( isAdminPage() || !isset($_SESSION["customer_mode"]) ) {
+                // désactive le mode 'client'
+                disableCustomerMode();
+            }
+            // si rôle non défini
+            if ( !isset($_SESSION["user_role"]) ) {
+                $header_file = "header";
+            } else {
+                if ( ($_SESSION["user_role"] == 0) || $_SESSION["customer_mode"] ) {
+                    // Rôle 'Utilisateur' (non admin) OU admin en mode 'client' :
+                    $header_file = "header_client";
+                } else {
+                    switch ($_SESSION["user_role"]) {
+                        case 1:
+                            // Rôle 'Administrateur Informatique'
+                        case 4:
+                            // Rôle 'Administrateur SuperAdmin'
+                            $header_file = "header_admin";
+                            break;
+                        case 2:
+                            // Rôle 'Administrateur CRCD'
+                            $header_file = "header_crcd";
+                            break;
+                        case 3:
+                            // Rôle 'Administrateur Compta'
+                            // todo : page à définir?
+                        default:
+                            $header_file = "header";
+                    }
+                }
+            }
+
+			include $GLOBALS_INI["PATH_HOME"] . $GLOBALS_INI["PATH_FILES"]  . $header_file . '.html';
+
+		?>
+    </div>
+    <!--END HEADER -->
+
+
+    <!--SECTION -->
+    <div class="main-section">
+        <?php include $GLOBALS_INI["PATH_HOME"] . $GLOBALS_INI["PATH_FILES"]  . $monPHP . ".html" ?>
+    </div>
+    <!--END SECTION -->
+
+
+    <!--FOOTER -->
+    <div class="main-footer">
+
+        <?php include $GLOBALS_INI["PATH_HOME"] . $GLOBALS_INI["PATH_FILES"]  . "footer.html" ?>
+    </div>
+    <!--END FOOTER -->
+
+
+    <!------------------------ MODAL DE CHARGEMENT ------------------------>
+    <div id="loadingModal" class="afpamodal fullscreen bc_bk50">
+    </div>
+    <!------------------------   ---------------   ------------------------>
+
+
+    <!-- SCRIPTS -->
+    <script>
+        /**
+                                                                	if( // create item orderWaiting to show there are no current order in waiting
+                                                                        localStorage.getItem("orderWaiting") === null ||
+                                                                        localStorage.getItem("orderWaiting") === undefined
+                                                                    ) localStorage.setItem("orderWaiting","inactive");
+
+                                                                    if( // check if item product exist and if is exist then remove him
+                                                                        localStorage.getItem("product") === "[]"
+                                                                    ) localStorage.removeItem("product");
+
+                                                                    if(!localStorage.getItem("users"))  
+                                                                        localStorage.setItem("users",`[{
+                                                                            "nom": "admin",
+                                                                            "prenom": "admin",
+                                                                            "phone": "123456789",
+                                                                            "mail":"admin@gmail.com",
+                                                                            "password": "admin",
+                                                                            "status": "admin"
+                                                                        }]`);
+                                                                */
+    </script>
+
+    <!--END BODY -->
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+/* CONTIENT TOUTE LA PAGE OFFRE */
+
+.container {      
+    width: 1140px;
+    height: 850px;
+    border: 1px solid black;   
+    margin-left: 55px;
+    margin-top: 30px;
+    margin-bottom: 50px;;
+    background-color: rgba(35, 31, 32, 0.05);
+    border-radius: 10px;
+}
+
+/* TITRES */
+
+h4 {
+    color: rgb(127, 194, 65);
+    text-decoration: underline;
+}
+
+/* PHOTO DU PANIER */
+
+#photo {
+    margin-top: 100px;    
+}
+
+/* IMAGE DU PRODUCTEUR */
+
+#img_producteur {
+    width: 30%;
+    float: right;
+}
+
+/* TITRE PANIER */
+
+#titre_panier {
+    font-size: 3em;    
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* DATES */
+
+#date {
+    font-size: 1.2em;    
+    text-align: center;
+}
+
+/* LISTE DEROULANTE FORMAT */
+
+.liste {    
+    margin-top: 25px;
+    text-align: center;
+    border: 2px solid rgb(0, 170, 255);
+    background-color: rgb(0, 170, 255);
+    color: white;    
+    font-weight: bold;
+    outline: unset;
+    border-radius: 5px;
+}  
+
+/* BOUTON AJOUT AU PANIER */
+
+.btn {
+    float: right;
+    font-weight: bold;
+    color: white;
+    border: 2px solid rgb(127, 194, 65);
+    background-color: rgb(127, 194, 65);
+    border-radius: 8px;
+    padding: 10px;    
+}
+
+.btn:hover {
+    background-color: white;
+    color: rgb(127, 194, 65);
+    transition: 1.5s;    
+}
+
+.btn:focus {
+    outline: unset !important;
+    box-shadow: unset;
+}
+
+/* LISTE RESULT APRES AJOUTS PANIER */
+
+.nombre_paniers {
+    list-style-type: none;
+    padding: unset;
+    margin-top: 50px;       
+    display: none; 
+}
+
+.result {    
+    border: 2px solid rgb(127, 194, 65);
+    background-color: rgba(127, 194, 65, 0.5);
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 2px;
+    margin-right: 365px;
+}
+
+.fas.fa-plus-square {
+    color: green;
+    cursor: pointer;
+}
+
+.fas.fa-minus-square {
+    color: red;
+    cursor: pointer;
+}
+
+/* BOUTON COMMANDER */
+
+.btn-command {
+    
+    font-weight: bold;
+    color: white;
+    border: 2px solid rgb(227, 0, 126);
+    background-color: rgb(227, 0, 126);
+    padding: 10px;
+    border-radius: 15px;        
+}
+
+.btn-command:hover {
+    color: rgb(227, 0, 126);
+    background-color: white;
+    transition: 1.5s;   
+}
+
+.btn-command:focus {
+    outline: unset;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    width: 20px;
+    border: none;
+    text-align: center;
+    background-color: rgba(127, 194, 65, 0);
+    font-weight: bold;
+}

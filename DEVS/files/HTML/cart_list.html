@@ -1,0 +1,8 @@
+<?php
+    $array_res[0] = array(
+        'offer_codePromo_list' => $oMain->resultat["offer_codePromo_list"],
+        'offer_CRCD_Training'=> $oMain->resultat['offer_CRCD_Training'],
+    );
+    // Prepare and send view
+    echo json_encode ($array_res);
+?>

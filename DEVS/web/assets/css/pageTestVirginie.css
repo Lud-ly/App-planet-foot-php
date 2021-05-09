@@ -1,0 +1,365 @@
+/**************************** HEADER ****************************/
+.headerNotLogged 
+{
+    color: white;
+    background-color: #7fc241;
+}
+
+.header_nav_account 
+{
+    display: flex;
+    margin-top: 4px;
+    justify-content: flex-end;
+}
+
+.count-container 
+{
+    width: 20px;
+    height: 20px;
+    color: #fff !important;
+    border-radius: 50%;
+    background-color: var(--fourth);
+    text-align: center;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    bottom: 7px;
+    left: 5px;
+    z-index: 10;
+    cursor: pointer;
+    font-family: 'FingerPaint';
+}
+
+/**************************** NOTIFICATIONS ****************************/
+
+#notif p 
+{
+    padding-left: 5%;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 16px;
+    max-height: 32px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: white !important;
+}
+
+#notif a:hover 
+{
+    text-decoration-line: none;
+}
+
+#notif 
+{
+    background-color: #7fc241;
+    color: white;
+    border: none;
+    width: 500%;
+    font-family: "Times New Roman", serif;
+    -webkit-box-shadow: 0px 2px 5px 4px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 2px 5px 4px rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 5px 4px rgba(255, 255, 255, 1);
+}
+
+.header_notif 
+{
+    display: flex;
+}
+
+
+/**************************** TITRES ****************************/
+.subtitleMain2 
+{
+    width: 100%;
+    text-align: center;
+}
+
+.nameProject 
+{
+    font-size: 40px;
+}
+
+.titlePage 
+{
+    font-size: 30px;
+}
+
+.home h2 
+{
+    text-align: left;
+}
+
+
+/**************************** RESPONSIVE ****************************/
+
+@media screen and (max-width: 1030px) {
+    .nameProject {
+        font-size: calc(30px + 6 * ((100vw - 320px) / 680));
+    }
+    .titlePage {
+        font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .nameAndTitle {
+        margin-left: calc(17px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+    .logoAfpanier {
+        margin-left: calc(5px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+    .iconsHeader {
+        width: calc(80px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nameAndTitle {
+        margin-left: calc(5px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+    .logoAfpanier {
+        width: 58px;
+    }
+    .nameProject {
+        font-size: calc(25px + 6 * ((100vw - 320px) / 680));
+    }
+    .titlePage {
+        font-size: calc(15px + 6 * ((100vw - 320px) / 680));
+    }
+    .iconsHeader {
+        width: calc(50px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+}
+
+
+/**************************** RECHERCHE ****************************/
+
+.dataTables_wrapper .dataTables_filter input 
+{
+    border: 1px solid #000;
+    position: relative;
+    top: -2px;
+    left: 0;
+}
+
+.table-title 
+{
+    padding-bottom: 15px;
+    border-radius: 1px 1px 0 0;
+}
+
+.table-wrapper 
+{
+    box-shadow: 0 13px 30px rgba(0, 0, 0, 0.25)
+}
+
+.table 
+{
+    border-bottom: none !important;
+    margin-bottom: 15px !important;
+    width: 100% !important;
+}
+
+tbody 
+{
+    min-width: 1000px;
+}
+
+
+/**************************** PAGINATION ****************************/
+
+.pagination 
+{
+    display: inherit;
+    border-radius: unset;
+}
+
+.page-link 
+{
+    border: none;
+}
+
+.page-item.active .page-link 
+{
+    background-color: var(--sec) !important;
+}
+
+.custom-select 
+{
+    width: fit-content;
+}
+
+input 
+{
+    font-family: "Varela Round", sans-serif;
+}
+
+
+#adm_admin_edit_data 
+{
+    display: none;
+    margin-top: 20px !important;
+    border-top: 1px dotted #000;
+}
+
+/**************************** DATALIST ****************************/
+
+#adm_admin_datalist 
+{
+    width: 100% !important;
+}
+
+.adm_admin_select 
+{
+    width: 100%;
+    height: 40px;
+}
+
+#modal_datalist 
+{
+    width: 50% !important;
+    max-width: 500px !important;
+}
+
+
+/**************************** TOOLTIPTEXT /TOOLTIP ****************************/
+.tooltiptext 
+{
+    line-height: 17px;
+}
+
+#tooltip .tooltiptext::after 
+{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--first) transparent transparent transparent;
+}
+
+#tooltip:hover .tooltiptext 
+{
+    visibility: visible;
+    opacity: 1;
+}
+
+#tooltip .tooltiptext 
+{
+    visibility: hidden;
+    width: 160px;
+    background-color: var(--first);
+    color: #fff;
+    text-align: center;
+    padding: 10px 5px;
+    font-size: 15px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#tooltip 
+{
+    position: relative;
+    display: inline-block;
+}
+
+
+/**************************** MODALES ****************************/
+#messageConfirmation
+{
+    text-align:center;
+}
+
+.modal-header
+{
+    color:#7fc241;
+}
+
+#modalConfirm
+{
+    border-width: thick;
+    border-color:#7fc241;
+    margin-top: 50px;
+    height: 300px;
+}
+
+.modal-header 
+{
+    border-bottom: none;
+}
+
+/**************************** IMAGES/LOGOS ****************************/
+.field-icon 
+{
+    float: right;
+    margin-right: 5px;
+    margin-top: -30px;
+    position: relative;
+    z-index: 2;
+}
+
+.field-icon>img
+{
+    width: 20px;
+}
+
+#iconeAide
+{
+    width:60px;
+}
+
+.iconsHeader 
+{
+    width: 150px;
+}
+
+.logoAfpanier 
+{
+    min-width: 58px;
+}
+
+.iconsHeader>img 
+{
+    min-height: 25px;
+}
+
+#bell,
+#bell:visited,
+#bell:active 
+{
+    background-color: transparent !important;
+    border: none;
+}
+
+
+/**************************** BOUTONS ****************************/
+.btn-cancel 
+{
+    color: #fff;
+    background: #e3007e;
+    border: 1px solid #e3007e;
+    border-radius: 4px !important;
+}
+
+.btn-cancel:hover 
+{
+    background-color: #FFFFFF;
+    color: #e3007e;
+    border: 1px solid #e3007e;
+    transition-duration: 1s;
+    box-shadow: 7px 7px 5px #e3007e;
+    -moz-box-shadow: 7px 7px 5px #e3007e;
+    -webkit-box-shadow: 7px 7px 5px #e3007e;
+    -khtml-box-shadow: 7px 7px 5px #e3007e;
+}

@@ -1,0 +1,22 @@
+/**************************** DATATABLE ****************************/
+.hot {
+    color: var(--danger);
+}
+
+
+/**************************** MODALE ****************************/
+.modal-content
+{
+    width: 200%;
+    display:flex;
+    position:relative;
+    right:200;
+}
+
+.form-group {
+    width: 300px;
+}
+
+.modal-body label {
+    font-size: .95rem;
+}

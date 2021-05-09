@@ -1,0 +1,47 @@
+/**************************** IMAGES ET ICONES ****************************/
+.photo
+{
+    width:96px;
+}
+
+/**************************** EDITEUR WYSIWYG ****************************/
+.note-editor.note-frame 
+{
+  width: 100% !important;
+}
+
+
+/**************************** MODALE ****************************/
+.modal-content
+{
+    width: 200%;
+    display:flex;
+    position:relative;
+    right:200;
+}
+
+/**************************** BOUTON UPLOAD DE FICHIER ****************************/
+.label_file 
+{
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: Verdana, Arial;
+  font-weight: bold;
+  font-size: 11px;
+  border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+  height: 40px;
+}
+
+.button_main 
+{
+  background-color: #de0187;
+  color: white;
+  border: 1px solid #de0187;
+}
+
+.infoFichier
+{
+  font-size:0.60em;
+  font-weight: bold;
+}

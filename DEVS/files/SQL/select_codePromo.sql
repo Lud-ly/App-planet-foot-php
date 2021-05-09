@@ -1,0 +1,1 @@
+select purchase.id_purchase, user__promo.id_user, user__promo.id_promo, promo.promo_label, promo.promo_reference, purchase.purchase_reference from user__promo left join purchase on purchase.id_purchase= user__promo.id_purchase left join promo on user__promo.id_promo = promo.id_promo

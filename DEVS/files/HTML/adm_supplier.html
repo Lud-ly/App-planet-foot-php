@@ -1,0 +1,287 @@
+<!-- 
+    id_supplier
+    supplier_name
+    supplier_firstname
+    supplier_email
+    supplier_phoneNumber
+    supplier_address
+    supplier_complement_address
+    supplier_zipCode
+    supplier_city
+    supplier_storeName
+    supplier_status
+    supplier_urlGoogleMap
+-->
+
+<!-- LINK -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css" />
+<link rel="stylesheet" href="assets/css/datatables_commun.css">
+<link rel="stylesheet" href="assets/css/adm_supplier.css">
+
+
+<!-- SCRIPT -->
+<script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="assets/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="assets/js/responsive.bootstrap4.min.js"></script>
+<script type="text/javascript" src="assets/DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="assets/js/utils.js"></script>
+<script type="text/javascript" src="assets/js/adm_supplier.js"></script>
+
+
+
+<section class="main-section">
+
+    <div class="container mt-3">
+        <!-- Start Datatables -->
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2 class="font-weight-bold">Gestion des Producteurs</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#addModal" class="btn btn-green" data-toggle="modal"><i
+                                class="material-icons">&#xE147;</i> <span>Ajouter un Producteur</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-striped table-hover table_commandes dt-responsive w-100 nowrap"
+                id="table_supplier"></table>
+        </div>
+    </div>
+
+    <!-- Ajouter Modal HTML -->
+    <div id="addModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- <form action="adm_supplier_add.php" method="POST" enctype="multipart/form-data"> -->
+                <div class=" modal-header">
+                    <h4 class="modal-title">Ajouter</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <!-- ATTENTION au <form> : le target vers l'iframe target="frmUploadImage", ainsi que  enctype="multipart/form-data" SONT INDISPENSABLES -->
+                        <form method="post" action="route.php" target="frmUploadImage" name="uploadForm" id="uploadForm"
+                            enctype="multipart/form-data">
+                            <input type="hidden" name="page" id="page" value="adm_supplier_upload">
+                            <input type="hidden" name="bJSON" id="bJSON" value="1">
+                            <div>
+                                <span>Sélectionnez une photo ou un document stocké sur votre ordinateur : </span>
+                                <!-- Nous avons ici notre label et l'input afférent -->
+                                <label for="nom_fichier" id="label_file" class="label_file button_main">Charger une
+                                    nouvelle image du fournisseur</label>
+                                <input id="nom_fichier" name="nom_fichier" type="file" style="display: none;"
+                                    onchange="doUpload()">
+                                <span class="error" id="sp_error_upload"></span>
+                                <div id="div_preview_img">
+                                </div>
+                            </div>
+                        </form>
+                        <!-- La FORM du dessus est SUBMITTED DANS L'IFRAME NON VISIBLE CI-DESSOUS -->
+                        <iframe src="about:blank" id="frmUploadImage" name="frmUploadImage"></iframe>
+                    </div>
+                    <input type="text" class="form-control" name="nom_fichier_fournisseur" id="nom_fichier_fournisseur"
+                        autocomplete="off" required>
+                    <span class="error"></span>
+
+                    <div class="form-group">
+                        <label for="addFirstname">Prénom</label>
+                        <input type="text" class="form-control" name="addFirstname" id="addFirstname" required>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addName">Nom</label>
+                        <input type="text" class="form-control" name="addName" id="addName" required>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addEmail">Email</label>
+                        <input type="email" class="form-control" name="addEmail" id="addEmail" required>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addPhone">Téléphone</label>
+                        <input type="tel" pattern="^(0|((\\+|00)33))(4|6|7)\\d{8}$" class="form-control" name="addPhone"
+                            id="addPhone" required>
+                        <span class="error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="addAddress">Adresse</label>
+                        <textarea class="form-control" name="addAddress" id="addAddress" required></textarea>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addCity">Ville</label>
+                        <input type="text" class="form-control" name="addCity" id="addCity" required>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addZip">Code Postal</label>
+                        <input type="text" class="form-control" name="addZip" id="addZip" required>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addStore">Nom magasin</label>
+                        <input type="text" class="form-control" name="addStore" id="addStore" required>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addMap">Google Map</label>
+                        <textarea type="text" class="form-control" name="addMap" id="addMap" required></textarea>
+                        <span class="error"></span>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-cancel" onclick="cleanFormAdd()" data-dismiss="modal" value="Annuler">
+                    <input type="button" class="btn btn-green" onclick="add_supplier_server()" value="Ajouter">
+                </div>
+
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal HTML -->
+    <div id="editModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="route.php" method="POST" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Éditer</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <!-- ATTENTION au <form> : le target vers l'iframe target="frmUploadImage", ainsi que  enctype="multipart/form-data" SONT INDISPENSABLES -->
+                            <form method="post" action="route.php" target="frmUploadImage" name="uploadForm"
+                                id="uploadForm" enctype="multipart/form-data">
+                                <input type="hidden" name="page" id="page" value="adm_supplier_upload">
+                                <input type="hidden" name="bJSON" id="bJSON" value="1">
+                                <div>
+                                    <span>Sélectionnez une photo ou un document stocké sur votre ordinateur : </span>
+                                    <!-- Nous avons ici notre label et l'input afférent -->
+                                    <label for="nom_fichier" id="label_file" class="label_file button_main">Charger une
+                                        nouvelle image du fournisseur</label>
+                                    <input id="nom_fichier" name="nom_fichier" type="file" style="display: none;"
+                                        onchange="doUpload()">
+                                    <span class="error" id="sp_error_upload"></span>
+                                    <div id="edit_div_preview_img">
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- La FORM du dessus est SUBMITTED DANS L'IFRAME NON VISIBLE CI-DESSOUS -->
+                            <iframe src="about:blank" id="frmUploadImage" name="frmUploadImage"></iframe>
+                        </div>
+                        <input type="text" class="form-control" name="edit_nom_fichier_fournisseur"
+                            id="edit_nom_fichier_fournisseur" autocomplete="off" required>
+                        <span class="error"></span>
+
+                        <div class="form-group">
+                            <label for="editFirstname">Prénom</label>
+                            <input type="text" class="form-control" name="editFirstname" id="editFirstname" required>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editName">Nom</label>
+                            <input type="text" class="form-control" name="editName" id="editName" required>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editEmail">Email</label>
+                            <input type="email" class="form-control" name="editEmail" id="editEmail"
+                                placeholder="mail@serveur.com" required>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editPhone">Téléphone</label>
+                            <input type="tel" pattern="^(0|((\\+|00)33))(4|6|7)\\d{8}$" class="form-control"
+                                name="editPhone" id="editPhone" required>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editAddress">Adresse</label>
+                            <textarea class="form-control" name="editAddress" id="editAddress" required></textarea>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editCity">Ville</label>
+                            <input type="text" class="form-control" name="editCity" id="editCity" required>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editZip">Code Postal</label>
+                            <input type="text" class="form-control" name="editZip" id="editZip" required>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editStore">Nom magasin</label>
+                            <input type="text" class="form-control" name="editStore" id="editStore" required>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editMap">Google Map</label>
+                            <textarea type="text" class="form-control" name="editMap" id="editMap" required></textarea>
+                            <span class="error"></span>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-cancel" onclick="cleanFormEdit()" data-dismiss="modal" value="Annuler">
+                        <input type="button" class="btn btn-green" onclick="modifySupplier(iIndiceEditionEncours)" value="Éditer">
+                    </div>
+                </form>
+                <iframe src="about:blank" id="frmUploadImage" name="frmUploadImage"
+                    style="width: 1px; height: 1px; border: 0px; margin: 0px; padding: 0px; display: none; pointer-events: auto;"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Modal HTML -->
+    <div id="deleteModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="adm_supplier_delete.php" method="POST">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Supprimer</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Supprimer définitivement ce fournisseur ?
+                        <h3 id="deleteSupplier"></h3>
+                        </p>
+                        <p class="text-danger"><small>Cette action ne peut pas être annulée.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-cancel" onclick="" data-dismiss="modal" value="Annuler">
+                        <input type="button" class="btn btn-green" value="Delete" data-dismiss="modal"
+                            onclick="delete_supplier_server(iIndiceDeleteEncours)">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>

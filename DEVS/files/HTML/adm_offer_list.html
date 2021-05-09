@@ -1,0 +1,14 @@
+<?php 
+
+    $array_res[0] = array(
+        "adm_offer_supplier_list" => $oMain->resultat["adm_offer_supplier_list"],
+        "adm_offer_suppliers_list" => $oMain->resultat["adm_offer_suppliers_list"],
+        "adm_offer_mainbasket_list" => $oMain->resultat["adm_offer_mainbasket_list"],
+        "adm_offer_category_list" => $oMain->resultat["adm_offer_category_list"],
+        "adm_offer_product_list" => $oMain->resultat["adm_offer_product_list"],
+        "adm_offer_measureUnit_list" => $oMain->resultat["adm_offer_measureUnit_list"],
+        "adm_offer_codePromo_list" => $oMain->resultat["adm_offer_codePromo_list"],
+    );
+
+    echo json_encode ($array_res); 
+?>

@@ -1,0 +1,22 @@
+
+.field:required {
+    background: url(asterisk.png) 98% center no-repeat;
+}
+
+.field:focus {
+    background-image: none;
+}
+
+.field:focus.invalid {
+    border-color: red;
+    border-width: 0.20em;
+}
+
+.field:focus.valid {
+    border-color: #56c93f;
+    border-width: 0.10em;
+}
+
+span.invalid_message {
+    color: red;
+}

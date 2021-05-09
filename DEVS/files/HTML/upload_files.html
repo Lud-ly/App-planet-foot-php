@@ -1,0 +1,72 @@
+<?php
+    if ($oMain->resultat["response_upload"] == "0") {
+        if ($oMain->resultat["copie"] == "" && $oMain->resultat["RecupIndice"] == "") {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_mainbasket").value= "<?php $oMain->resultat['response_upload'] ?>"</script>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_mainbasket").innerHTML= "<p class='Div_Resultat_upload_mainbasket'>Enregistrement effectué</p>"</script>
+<script type="text/javascript">top.frames.document.getElementById("adm_offer_ApercuImage").innerHTML= "<img src='<?= $oMain->resultat['adm_offer_ApercuImage'] ?>' alt='<?= $oMain->resultat['adm_offer_ApercuImage_title'] ?>'>"</script>
+<?php
+        } else if ($oMain->resultat["RecupIndice"] != "") {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_Upload_Basket_Edit").value= "<?php $oMain->resultat['response_upload'] ?>"</script>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_Upload_Basket_Edit").innerHTML= "<p class='Div_Resultat_upload_mainbasket'>Enregistrement effectué</p>"</script>
+<script type="text/javascript">top.frames.document.getElementById("adm_offer_ApercuImageEdit").innerHTML= "<img src='<?= $oMain->resultat['adm_offer_ApercuImage'] ?>' alt='<?= $oMain->resultat['adm_offer_ApercuImage_title'] ?>'>"</script>
+<?php
+        } else {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_Basket<?= $oMain->resultat['copie'] ?>").value= "<?php $oMain->resultat['response_upload'] ?>"</script>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_Basket<?= $oMain->resultat['copie'] ?>").innerHTML= "<p class='Div_Resultat_upload_Basket<?= $oMain->resultat['copie'] ?>'>Enregistrement effectué</p>"</script>
+<script type="text/javascript">top.frames.document.getElementById("adm_offer_ApercuImage<?= $oMain->resultat['copie'] ?>").innerHTML= "<img src='<?= $oMain->resultat['adm_offer_ApercuImage'] ?>' alt='<?= $oMain->resultat['adm_offer_ApercuImage_title'] ?>'>"</script>
+
+<?php   
+        } 
+    } else if ($oMain->resultat["response_upload"] == "1") {
+        if ($oMain->resultat["copie"] == "" && $oMain->resultat["RecupIndice"] == "") {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_mainbasket").innerHTML= "Erreur lors du téléversement."</script>
+<?php
+        } else if ($oMain->resultat["RecupIndice"] != "") {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_Upload_Basket_Edit").innerHTML= "Erreur lors du téléversement."</script>
+<?php
+        } else {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_Basket<?= $oMain->resultat['copie'] ?>").innerHTML= "Erreur lors du téléversement."</script>
+
+
+<?php
+        }
+    } else if ($oMain->resultat["response_upload"] == "2") {
+        if ($oMain->resultat["copie"] == "" && $oMain->resultat["RecupIndice"] == "") {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_mainbasket").innerHTML= "L'extension du fichier n'est pas acceptée!"</script>
+<?php
+        } else if ($oMain->resultat["RecupIndice"] != "") {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_Upload_Basket_Edit").innerHTML= "L'extension du fichier n'est pas acceptée!"</script>
+<?php
+        } else {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_Basket<?= $oMain->resultat['copie'] ?>").innerHTML= "L'extension du fichier n'est pas acceptée!"</script>
+
+
+
+<?php
+        }
+    } else if ($oMain->resultat["response_upload"] == "3") {
+        if ($oMain->resultat["copie"] == "" && $oMain->resultat["RecupIndice"] == "") {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_mainbasket").innerHTML= "Le fichier est trop volumineux!"</script>
+<?php
+        } else if ($oMain->resultat["RecupIndice"] != "") {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_Upload_Basket_Edit").innerHTML= "Le fichier est trop volumineux!"</script>
+<?php
+        } else {
+?>
+<script type="text/javascript">top.frames.document.getElementById("Div_Resultat_upload_Basket<?= $oMain->resultat['copie'] ?>").innerHTML= "Le fichier est trop volumineux!"</script>
+
+<?php
+        }
+    }
+?>

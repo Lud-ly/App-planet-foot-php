@@ -1,0 +1,188 @@
+
+/**************************/
+/****     SECTION     ****/
+/**************************/
+.main-section{
+    background-image: url(../../assets/img/afpanier_02.png);
+    background-attachment: fixed;
+}
+
+/**************************/
+/****     MODAL     ****/
+/**************************/
+.modal-content
+{
+    background-color: whitesmoke;
+    width: 200%; 
+    display:flex;
+    position:relative;
+    right:200;
+}
+.error{
+    color: red;
+}
+/**************************/
+/****     TABLE&IMG     ****/
+/**************************/
+
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+    top: calc(50% - 9px);
+    background-color: var(--sec);
+}
+.table-wrapper{
+    margin-top: 100px!important;
+}
+.edit_div_preview_img{
+    text-align: right; 
+    position: relative;
+     top: -48px;
+}
+.div_preview_img{
+    text-align: right;
+    position: relative;
+    top: -48px;
+}
+.supplier_img {
+    cursor: pointer;
+    background-size: cover;
+    border-radius: 1px;
+    transition: transform .2s; /* Animation */
+    width: 77px;
+    height:auto; 
+}
+.supplier_img:hover{
+    transform: scale(3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    /* transform: scaleX(-1); */
+}
+
+/**************************/
+/****  INPUT & BUTTON & IFRAME****/
+/**************************/
+button,
+input {
+    overflow: hidden !important;
+}
+input:invalid{
+    border: 1px solid red;
+}
+.label_file {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: Verdana, Arial;
+    font-weight: bold;
+    font-size: 11px;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+    height: 40px;
+}
+.button_main {
+    background-color: #7fc241;
+    color: white;
+    border: 1px solid #fff;
+}
+#frmUploadImage{
+    width: 1px; 
+    height: 1px; 
+    border: 0px; 
+    margin: 0px; 
+    padding: 0px; 
+    display: none; 
+    pointer-events: auto;
+}
+.inputBox {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #7fc241;
+}
+
+.inputBox input,
+.inputBox.textarea textarea {
+    position: absolute;
+    top: 4px;
+    left: -8px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-family: FingerPaint;
+    font-size: 18px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #231f20;
+    margin-bottom: 20px;
+}
+
+.inputBox .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #231f20;
+    line-height: 40px;
+    font-size: 18x;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.inputBox input:focus+.text,
+.inputBox input:valid+.text {
+    top: -35px;
+    left: -10px;
+}
+
+.inputBox .line {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #7fc241;
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.inputBox input:focus~.line,
+.inputBox input:valid~.line {
+    height: 100%;
+}
+
+.inputBox.textarea {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0;
+}
+
+.inputBox.textarea textarea {
+    height: 100%;
+    resize: none;
+}
+
+.inputBox textarea:focus+.text,
+.inputBox textarea:valid+.text {
+    top: -35px;
+    left: -10px;
+}
+
+.inputBox textarea:focus~.line,
+.inputBox textarea:valid~.line {
+    height: 100%;
+}
+
+input[type="submit"] {
+    border: none;
+    padding: 7px 35px;
+    cursor: pointer;
+    outline: none;
+    background: #7fc241;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 10px;
+}

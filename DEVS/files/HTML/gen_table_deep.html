@@ -1,0 +1,50 @@
+
+<div class="container h-100">
+
+    <div id="orders_labels" class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-1">Id</div>
+            <div class="col-3">Reference</div>
+            <div class="col-4">Label</div>
+            <div class="col-4">Date</div>
+        </div>
+    </div>
+
+    <div id="gen_table_deep_array_tbody" class="container">
+        <!-- ICI seront insérées les données DEEP crée en js -->
+        <!-- Donc vide de base -->
+    </div>
+
+</div>
+
+
+
+
+<!-- EXT FILES && CSS -->
+<script src="assets/js/gen_table_deep.js"></script>
+
+<style>
+
+    #gen_table_deep_array_tbody .commande {
+        background-color: #858585;
+        color: #fff;
+    }
+
+    #gen_table_deep_array_tbody .commande:hover {
+        background-color: rgba(128, 122, 251, 0.61) !important;
+        cursor: pointer;
+    }
+
+    .panier {
+        background-color: rgba(87, 81, 251, 0.75) !important;
+    }
+
+    .commande > div {
+        text-align: center;
+    }
+
+    #orders_labels > div > div {
+        text-align: center;
+    }
+
+</style>

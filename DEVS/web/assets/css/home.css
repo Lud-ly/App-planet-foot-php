@@ -1,0 +1,137 @@
+/**************************************/
+
+
+/* CSS du Header/Footer */
+
+
+/* CSS de Sylvain AKTEPE */
+
+
+/**************************************/
+
+:root {
+    --green_afpa: #7fc241;
+    --white: white;
+}
+
+.home_img {
+    width: 300px!important;
+    height: 230px!important;
+}
+
+body {
+    background-image: url(../../assets/img/football.png);
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    height: 100% !important;
+}
+
+.logo_home img {
+    width: 20%;
+    margin-left: 4%;
+}
+
+.main-header li {
+    list-style: none !important;
+    font-size: 19px !important;
+}
+
+.borders {
+    border: inherit;
+    margin-top: 15px;
+    border-bottom: 5px solid !important;
+    border-color: var(--green_afpa) !important;
+}
+
+.home_title h1 {
+    font-size: 60px !important;
+    padding-bottom: 0 !important;
+    font-weight: none !important;
+    padding-top: 0 !important;
+}
+
+.home h2 {
+    font-size: 23px !important;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+}
+
+a {
+    color: black;
+    text-decoration: none !important;
+}
+
+li a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.main-footer li {
+    font-weight: bold !important;
+    font-size: 13px !important;
+}
+
+.dropdown-item {
+    -webkit-transition-duration: 0.1s !important;
+    /* Safari */
+    transition-duration: 0.1s !important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--green_afpa);
+    color: var(--white);
+}
+
+
+/* Pop */
+
+@-webkit-keyframes hvr-pop {
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        color: var(--green_afpa);
+    }
+}
+
+@keyframes hvr-pop {
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        color: var(--green_afpa);
+    }
+}
+
+.hvr-pop {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    font-family: 'FingerPaint';
+}
+
+.hvr-pop:hover,
+.hvr-pop:focus,
+.hvr-pop:active {
+    -webkit-animation-name: hvr-pop;
+    animation-name: hvr-pop;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+.logo_disconect img {
+    width: 5%;
+}
+
+.modalHome {
+    background-color: #0000008f;
+}
+
+.modalDialogHome {
+    margin-top: 13%;
+}

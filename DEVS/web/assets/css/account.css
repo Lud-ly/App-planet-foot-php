@@ -1,0 +1,72 @@
+/* Icone en forme d'oeil pour voir le mdp */
+.field-icon 
+{
+    float: right;
+    margin-right: 5px;
+    margin-top: -30px;
+    position: relative;
+    z-index: 2;
+    width: 20px;
+}
+
+/* Boutons enregistrer, annuler la suppression du compte et ok */
+#bouton_enregistrer, #boutonAnnulerSuppression, #boutonOk
+{
+  background-color: #7fc241 !important;
+  width:48%;
+}
+
+/* Boutons supprimer le compte et confirmer la suppression du compte */
+#bouton_supprimer, #boutonConfirmerSuppression
+{
+  background-color: #de1f85;
+  width:48%;
+}
+
+
+/* Titre de la page "Mon profil" */
+.titleMain
+{
+  font-size: 2em !important;
+}
+
+/* Champ mot de passe : oeil (pour voir le mdp) */
+.eye {
+  width: 15px;
+  cursor: pointer;
+}
+
+/* Description Champ */
+span.descr {
+  font-size: 80%;
+}
+
+/* Description Champ Sécurité Faible / Mdp différents / Invalide */
+span.descr.low_security,
+span.descr.differents,
+span.descr.invalid
+{
+  color: red;
+}
+/* Description Champ Sécurité Moyenne */
+span.descr.weak_security
+{
+  color: orange;
+}
+/* Description Champ Sécurité Bonne / Mdp identiques */
+span.descr.good_security,
+span.descr.identiques
+{
+  color: green;
+}
+/* Description Champ Sécurité Forte */
+span.descr.strong_security
+{
+  color: black;
+}
+
+
+.input_features {
+  color: blue;
+  display: block;
+}

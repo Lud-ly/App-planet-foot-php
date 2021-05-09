@@ -1,0 +1,38 @@
+#valid_com {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#numcom {
+    color: #7fc241;
+    font-weight: bold;
+}
+
+#numuni {
+    color: #7fc241;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+#lacom {
+    font-size: x-large;
+    margin-bottom: 2%;
+}
+
+#service {
+    background-color: white;
+    margin-bottom: 0%;
+}
+
+#warning {
+    margin-top: 5%;
+}
+
+.btn {
+    color: white;
+    font-weight: bold;
+}
+
+#tel {
+    margin-top: 3%;
+}

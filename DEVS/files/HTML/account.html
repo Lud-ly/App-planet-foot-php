@@ -1,0 +1,194 @@
+<?php
+    redirectToHomePageIfNoUserConnected();
+?>
+
+<!----------------->
+<!-- styles used -->
+<!----------------->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/datatables_commun.css" />
+<link rel="stylesheet" href="assets/css/account.css">
+<!------------------>
+<!-- scripts used -->
+<!------------------>
+<script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="assets/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="assets/DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="assets/js/utils.js"></script>
+<script type="text/javascript" src="assets/js/tel_input_mask.js"></script>
+<script type="text/javascript" src="assets/js/account.js"></script>
+
+
+<?php
+    /**
+    * Infos about the connected user
+    * 
+    * @var Array $userInfos Infos about the connected user
+    */
+    $userInfos = Account::$userInfos;
+?>
+
+<h1 class="titleMain">Mon profil</h1>
+
+<div id="account_container" class="col-md-6 align-self-strech mx-auto w-100">
+    <p class="text-center">Dans cette section, vous pouvez modifier vos informations.</p>
+    <div class="row">
+        
+        <!-- SECTION CIVILITE, NOM, PRENOM, CODE BENEFICIAIRE -->
+        <div class="col-md-6">
+            <!-- Choix civilité -->
+            <?php
+                if (isset($userInfos[0]["userGender"])) {
+                    $userGender = $userInfos[0]["userGender"];
+                }
+                $sManSelected = ($userGender == '1') ? " selected" : '';
+                $sWomanSelected = ($userGender == '0') ? " selected" : '';
+            ?>
+                        <div class="form-group w-100 mx-auto mt-3">
+                            <label for="gender_user">Civilité</label>
+                            <select class="form-control inputMain" id="input_gender_user" name="input_gender_user" placeholder="-- selectionner --" disabled>
+                                <option value="monsieur" <?= $sManSelected ?> >Monsieur</option>
+                                <option value="madame" <?= $sWomanSelected ?> >Madame</option>
+                            </select>
+                        </div>
+
+                        <!-- Nom (non modifiable) -->
+                        <div class="form-group w-100 mx-auto">
+                            <label for="lastname_user">Nom</label>
+                            <input type="text" class="form-control inputMain" id="lastname_user" name="lastname_user" value="<?= $userInfos[0]['userName'] ?>" disabled/>
+                        </div>
+
+            <!-- Prénom (non modifiable) -->
+            <div class="form-group w-100 mx-auto mt-3">
+                <label for="firstname_user">Prénom</label>
+                <input type="text" class="form-control inputMain" id="firstname_user" name="firstname_user" value="<?= $userInfos[0]['userFirstName'] ?>" disabled/>
+            </div>     
+            
+            <!-- Code bénéficiaire (non modifiable) -->
+            <div class="form-group w-100 mx-auto mt-3">
+                <label for="code_user">Code bénéficiaire</label>
+                <input type="text" class="form-control inputMain" id="code_user" name="code_user" value="<?= $userInfos[0]['userIdentifier'] ?>" disabled/>
+            </div>
+        </div>
+
+        <!-- SECTION TELEPHONE, EMAIL, NOUVEAU MDP, CONFIRMATION NOUVEAU MDP -->
+        <div class="col-md-6">
+            <!-- Téléphone -->
+            <div class="form-group w-100 mx-auto mt-3">
+                <label for="tel_user">Téléphone</label>
+                <input id="tel_user" type="tel" class="form-control inputMain" name="tel_user"
+                value="<?= Account::$userInfos[0]['userPhoneNumber']; ?>" />
+                      <!-- pattern="<?= Patterns::get('tel') ?>" -->
+                <span class="descr invalid hide">Sont acceptés les numéros commençant par 04, 06 et 07 (ou 0033/+33..)</span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group w-100 mx-auto mt-3">
+                <label for="email_user">Email</label>
+                <input id="email_user" type="email" class="form-control inputMain" name="email_user"
+                    value="<?= $userInfos[0]['userEmail'] ?>" />
+                <span class="descr invalid hide">Format d'e-mail incorrect</span>
+            </div>
+
+                    <!-- Nouveau mdp -->
+                    <div class="form-group w-100 mx-auto mt-3">
+                        <label for="newPassword">Nouveau mot de passe</label>
+                        <input id="newPassword" type="password" class="form-control inputMain" name="newPassword" value="" onKeyUp="account_verifierSaisieMdp()" />
+                        <!-- Montre/cache le mdp -->
+                        <span toggle="#newPassword" class="field-icon toggle-password"><img
+                    class="eye" src="assets\img\eye.png">
+                </span>
+                        <span id="resultTestPsw" class="descr small ml-2 hide" name="resultTestPsw"></span>
+                        <small id="passwordHelpBlockConnexion" class="form-text text-muted">
+                </small>
+                    </div>
+
+                    <!-- Confirmation nouveau mot de passe -->
+                    <div class="form-group w-100 mx-auto mt-3">
+                        <label for="psw">Confirmation nouveau mot de passe</label>
+                        <input id="confirmPassword" type="password" class="form-control inputMain" name="confirmPassword" value="" onKeyUp="account_verifierSaisieMdp()" />
+                        <!-- Montre/cache le mdp -->
+                        <span toggle="#confirmPassword" class="field-icon toggle-password"><img
+                    class="eye" src="assets\img\eye.png">
+                </span>
+                        <div>
+                            <span id="statutNewPwd" class="descr small ml-2 hide"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- BOUTONS -->
+            <div class="mb-2 d-flex">
+                <!-- Bouton enregistrer les modifications -->
+                <!-- <button type="submit" class="connexion mt-3 mr-4" id="bouton_enregistrer" data-toggle="modal" data-target="#modal_save">Enregistrer les modifications</button> -->
+                <button id="bouton_enregistrer" class="connexion mt-3 mr-4" disabled>Enregistrer les modifications</button>
+
+                <!-- Bouton supprimer le compte -->
+                <button id="bouton_supprimer" type="submit" class="connexion mt-3" data-toggle="modal" data-target="#modal_delete">Supprimer mon compte</button>
+            </div>
+        </div>
+
+        <!-- MODALE SUPPRESSION -->
+        <div id="modal_delete" class="modal fade" tabindex="-1" role="dialog" aria-label="Dialogue de connexion" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active">
+                                <form class="form" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-10 align-self-strech mx-auto">
+                                            <!-- Demande de confirmation -->
+                                            <p class="demandeConfirmationSuppression">Confirmez-vous la suppression de votre compte? Cette action sera définitive.</p>
+                                        </div>
+                                        <div class="mb-2 d-flex mx-auto">
+                                            <!-- Bouton supprimer le compte -->
+                                            <button id="boutonConfirmerSuppression" class="connexion mt-3 mr-3 text-center">Supprimer mon compte</button>
+                                            <!-- Bouton annuler la suppression -->
+                                            <button type="submit" class="connexion mt-3 text-center" id="boutonAnnulerSuppression" data-dismiss="modal" aria-label="Fermer">Annuler la suppression</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODALE ENREGISTREMENT -->
+        <div id="modal_save" class="modal fade" tabindex="-1" role="dialog" aria-label="Dialogue de connexion" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active">
+                                <form class="form" method="POST">
+                                    <div class="col-md-10 align-self-strech mx-auto">
+                                        <!-- Demande de confirmation -->
+                                        <p class="text-center">Les modifications de votre profil ont bien étés enregistrées</p>
+                                    </div>
+                                    <div class="mb-2 d-flex mx-auto">
+                                        <!-- Bouton ok -->
+                                        <button type="submit" class="connexion mt-3 text-center mx-auto" id="boutonOk" data-dismiss="modal" aria-label="Fermer">ok</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

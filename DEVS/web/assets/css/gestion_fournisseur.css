@@ -1,0 +1,55 @@
+table.dataTable>tbody>tr.child span.dtr-title
+{
+    width: 100%;
+}
+.titre_google_map
+{
+    width: 50%;
+    text-align: center;
+}
+#div_google_map
+{
+   width: min-content !important;
+}
+.selecteur
+{
+    width: 3.5vw;
+    transition: all 600ms ease-out;
+    transform-origin: center;
+    position: absolute;
+}
+.smiley
+{
+    width: 3vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+.smiley_datatable
+{
+    width: 40%;
+    margin-left: 30%;
+}
+#divModalSaving {
+    background-image: url(images/chargement.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1000;
+}
+td
+{
+    text-align: left !important;
+}
+#area
+{
+    padding: 0;
+    margin: 0;
+}
+.google_map
+{
+    height: 50vh;
+    width: 50%;
+}
+.photo_profil_dans_datatable
+{
+    width: 50%;
+}

@@ -1,0 +1,4 @@
+insert into basket (id_supplier, id_mainBasket, basket_name, basket_image, basket_description, basket_reference, basket_number, basket_quantity,
+basket_price, basket_begin_date, basket_end_date, basket_begin_validation_date,basket_end_validation_date, basket_payment_begin_date, basket_payment_end_date, basket_withdrawal_begin_date, basket_withdrawal_end_date, basket_status)
+values (@id_supplier, @id_mainBasket, "@basket_name", "@basket_image", "@basket_description", "@basket_reference", @basket_number, @basket_quantity,
+"@basket_price", "@basket_begin_date", "@basket_end_date", "@basket_begin_validation_date", "@basket_end_validation_date", "@basket_payment_begin_date", "@basket_payment_end_date", "@basket_withdrawal_begin_date", "@basket_withdrawal_end_date", 1)

@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="assets/css/header.css">
+<link rel="stylesheet" href="assets/css/header_client.css">
+
+<script type="text/javascript" src="assets/js/utils.js"></script>
+<script type="text/javascript" src="assets/js/header_client.js"></script>
+
+<!-- <script type="module" src="assets/js/header_client.js"></script> -->
+
+<div class="main-header main_header_client p-2 d-flex justify-content-around">
+    <div class="borders p-1 d-flex container">
+        <div class="col-6">
+            <a href="index" class="blockHeaderTitle">
+                <div class="row logo_home">
+                    <img id="header_img" src="assets/img/logo.png" alt="Logo de l'AF-PANIER">
+                    <div class="ml-1 headerTitle">
+                        <h1>PLANET-FOOT</h1>
+                        <div class="home header_client_home">
+                            <h2>Votre Applis d'infos de foot</h2>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light col-6 justify-content-end">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav topnavlist-unstyled ml-auto mt-3">
+                    <li class="ml-4 nav-item active text-right"> <a href="index" class="hvr-pop">ACCUEIL</a></li>
+                    <li class="ml-4 nav-item text-right" id="block-panier"><span id="Qt-panier" class="panier_count_fade sr-only"></span><a href="cart" class="hvr-pop header_notif justify-content-end" style="margin-top: 4px;">MON PANIER<div class="count-container" id="count_basket"></div></a>
+                    </li>
+                    <li class="ml-4 dropdown text-right header_nav_account">
+                        <a class="nav-item dropdown-toggle hvr-pop" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">MON COMPTE</a>
+                        <div id="notifs_counter" class="count-container show_notifs notifs empty" data-toggle='modal' data-target='#info_notif' aria-label="" onclick="return false;"></div>
+                        <div id="dropdown-connected" class="dropdown-menu">
+                            <?php
+                                if ( isset($_SESSION["customer_mode"]) && $_SESSION["customer_mode"] ) {
+                                    echo '<a id="mode_admin" class="hvr-pop dropdown-item">ACCUEIL ADMIN</a>';
+                                }
+                            ?>
+                            <a href="account" class="hvr-pop dropdown-item">PROFIL</a>
+                            <a href="purchase" class="hvr-pop dropdown-item" id="block-order"><span id="Qt-order" class="order_count_fade"></span>MES COMMANDES</a>
+                            <a href="#" data-toggle='modal' data-target='#info_notif' onclick="return false" class="hvr-pop dropdown-item show_notifs header_notif">NOTIFICATIONS
+                            <div id="menu_notifs_counter" class="count-container show_notifs notifs" onclick="return false" data-toggle='modal' data-target='#info_notif' onclick="return false" aria-label="Il y a 1 notification non lue">1</div></a>
+                            <a href="faq_visible" class="hvr-pop dropdown-item">FAQ</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item hvr-pop" onclick="disconnect()" href="logout">DÉCONNECTER</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="modal fade" id="info_notif">
+    <div class="modal-dialog scale-up-center ">
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <h2 class="subtitleMain2 modal-title">Notifications</h2>
+                <i id="new_notif" class="fab fa-hotjar op-0"></i>
+            </div>
+            <div id="notif_message" class="modal-body "></div>
+            <div class="modal-footer">
+                <p id="notif_index" class="col-4">1/1</p>
+                <div class="col-4">
+                    <i class="fas fa-arrow-left arrow left"></i>
+                    <i class="fas fa-arrow-right arrow right"></i>
+                </div>
+                <button type="button" class="btn btn-cancel col-4" data-dismiss="modal">FERMER</button>
+            </div>
+        </div>
+    </div>
+</div>

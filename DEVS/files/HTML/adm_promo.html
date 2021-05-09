@@ -1,0 +1,199 @@
+<!-- styles used -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css" />
+<link rel="stylesheet" href="assets/css/datatables_commun.css">
+<link rel="stylesheet" href="assets/css/toastr.css">
+<link rel="stylesheet" href="assets/css/chosen.css">
+<link rel="stylesheet" href="assets/css/input_control.css">
+<link rel="stylesheet" href="assets/css/adm_promo.css">
+<!-- <link rel="stylesheet" href="assets/css/jquery-ui.css"> -->
+
+<!-- scripts used -->
+<script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="assets/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="assets/js/responsive.bootstrap4.min.js"></script>
+<script type="text/javascript" src="assets/DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="assets/js/toastr.js" async></script>
+<script type="text/javascript" src="assets/js/utils.js"></script>
+<script type="text/javascript" src="assets/js/chosen.jquery.js"></script>
+<script type="text/javascript" src="assets/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="assets/js/validate.js"></script>
+<script type="text/javascript" src="assets/js/input_control.js"></script>
+<script type="text/javascript" src="assets/js/adm_promo.js"></script>
+<!-- <script type="text/javascript" src="assets/js/jquery-ui.js"></script> -->
+
+
+
+
+<section>
+    <div class="container-fluid mt-3">
+        <!-- Datatable -->
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2 class="font-weight-bold">Gestion des promotions</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#addModal" class="btn btn-green" data-toggle="modal"><i
+                                class="material-icons">&#xE147;</i> <span>Ajouter un élément</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover table_commandes dt-responsive w-100 nowrap" id="table_promo"></table>
+        </div> 
+    </div> 
+
+    <!-- MODALE POUR AJOUTER UNE PROMOTION -->
+    <div id="addModal" class="modal fade">  
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form class=''>
+                    <!-- Bouton pour ajouter une promotion -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ajouter</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body container">
+                        <input type="hidden" class="form-control" id="id_promo">
+                        <input type="hidden" class="form-control" id="status_promo">
+                        <div class='line_1 row'>
+                            <!-- Statut -->
+                            <div class="status col-3 form-group">
+                                <label id="labelStatus" for="promoStatus" class="font-weight-bold"> </label><br>
+                                <input id="promoStatus" class="field checkbox promoStatus" type="checkbox" checked="">
+                                <label checked="" for="promoStatus"></label>
+                            </div>
+                            <!-- Libellé -->
+                            <div class="label col-3 form-group">
+                                <label id="labelLabel" for="promoLabel" class="font-weight-bold">Libellé du code promo :</label><br>
+                                <input id="promoLabel" type="text" class="field form-control" name="promoLabel">
+                            </div>
+                            <!-- Description -->
+                            <div class="description col-6 form-group">
+                                <label id="labelDescription" for="promoDescription" class="font-weight-bold">Description :</label><br>
+                                <input id="promoDescription" type="text" class="field form-control" name="promoDescription" placeholder='Ex: promo suite à anniversaire centre afpa'>
+                            </div>
+                        </div>
+                        <div class='line_2 row'>
+                            <!-- Code Promo -->
+                            <div class="code col-3 form-group">
+                                <label id="labelCode" for="promoCode" class="font-weight-bold">Code Promo :</label>
+                                <input id="promoCode" type="text" class="field form-control" name="promoCode">
+                            </div>
+                            <!-- Valeur -->
+                            <div class="label col-3 form-group">
+                                <label id="labelValue" for="promoValue" class="font-weight-bold">Valeur :</label><br>
+                                <!-- <input id="promoValue" type="number" class="field form-control" name="promoValue" placeholder='Ex: 5' min='0' max='100'> -->
+                                <input id="promoValue" type="text" class="field form-control" name="promoValue" placeholder='Ex: 5' min='0' max='100'>
+                            </div>
+                            <!-- Type d'avantage -->
+                            <div class="type col-6 form-group">
+                                <label id="labelType" for="promoType" class="font-weight-bold">Type d'avantage :</label><br>
+                                <select id="promoType" class="field form-control" name="promoType"></select>
+                            </div>
+                        </div>
+                        <div class='line_3 row'>
+                            <!-- Nombre de coupons -->
+                            <div class="code col-3 form-group">
+                                <label id="labelQuantity" for="promoQuantity" class="font-weight-bold">Nombre de coupons :</label>
+                                <!-- <input id="promoQuantity" type="number" class="field form-control" name="promoQuantity" min='0'> -->
+                                <input id="promoQuantity" type="text" class="field form-control" name="promoQuantity" min='0'>
+                            </div>
+                            <!-- Date de début -->
+                            <div class="label col-3 form-group">
+                                <label id="labelValue" for="promoStartDate" class="font-weight-bold">Date de début de la promo :</label><br>
+                                <!-- <input id="promoStartDate" type="date" class="field form-control" name="promoStartDate"> -->
+                                <input id="promoStartDate" type="text" class="field datepicker form-control" name="promoStartDate" value='2020-05-10'>
+                                <!-- <input id="promoStartTime" type="time" class="field form-control" name="promoStartTime"> -->
+                                <input id="promoStartTime" type="text" class="field form-control" name="promoStartTime">
+                            </div>
+                            <!-- Date de fin -->
+                            <div class="label col-3 form-group">
+                                <label id="labelValue" for="promoEndDate" class="font-weight-bold">Date de fin de la promo :</label><br>
+                                <!-- <input id="promoEndDate" type="date" class="field form-control" name="promoEndDate"> -->
+                                <input id="promoEndDate" type="text" class="field datepicker form-control" name="promoEndDate">
+                                <!-- <input id="promoEndTime" type="time" class="field form-control" name="promoEndTime"> -->
+                                <input id="promoEndTime" type="text" class="field form-control" name="promoEndTime">
+                            </div>
+                        </div>
+                    <!-- Boutons annuler et ajouter -->
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-cancel" data-dismiss="modal" value="Annuler">
+                        <input id="addButton" type="button" class="btn btn-green" onClick="checkFields()" value="Ajouter">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALE POUR MODIFIER UNE PROMOTION -->
+    <div id="editModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <!-- Bouton pour modifier une promotion -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Éditer</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Modifier la date de début -->
+                        <div class="form-group">
+                            <label>Date de début</label>
+                            <input type="text" class="form-control" name="dateDebutEdit" id="dateDebutEdit" required>
+                        </div>
+                        <!-- Modifier l'heure de début -->
+                        <div class="form-group">
+                            <label>Heure de début</label>
+                            <input type="time" class="form-control" name="heureDebutEdit" id="heureDebutEdit" required>
+                        </div>
+                        <!-- Modifier la date de fin -->
+                        <div class="form-group">
+                            <label>Date de fin</label>
+                            <input type="text" class="form-control" name="dateFinEdit" id="dateFinEdit" required>
+                        </div>
+                        <!-- Modifier l'heure de fin -->
+                        <div class="form-group">
+                            <label>Heure de fin</label>
+                            <input type="time" class="form-control" name="heureFinEdit" id="heureFinEdit" required>
+                        </div>
+                        <!-- Modifier le code -->
+                        <div class="form-group">
+                            <label>Code</label>
+                            <input type="text" class="form-control" name="codeEdit" id="codeEdit" required>
+                        </div>
+                        <!-- Modifier la valeur -->
+                        <div class="form-group">
+                            <label>Valeur</label>
+                            <input type="text" class="form-control" name="valeurEdit" id="valeurEdit" required>
+                        </div>
+                        <!-- Modifier le type -->
+                        <div class="form-group">
+                            <label>Type</label>
+                            <input type="text" class="form-control" name="typeEdit" id="typeEdit" required>
+                        </div>
+                        <!-- Modifier la description -->
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" class="form-control" name="descriptionEdit" id="descriptionEdit" required>
+                        </div>
+                        <!-- Modifier la quantité -->
+                        <div class="form-group">
+                            <label>Quantité</label>
+                            <input type="text" class="form-control" name="quantiteEdit" id="quantiteEdit" required>
+                        </div>
+                    </div>
+                    <!-- Boutons annuler et modifier la promotion -->
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-cancel" data-dismiss="modal" value="Annuler" data-dismiss="modal">
+                        <input type="button" class="btn btn-green" onClick="signin_verifierFormVideEdit()" value="Éditer" id="clicEdit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,168 @@
+<!----------------->
+<!-- styles used -->
+<!----------------->
+<link rel="stylesheet" type="text/css" href="assets/css/datatables.modif.min.css">
+<link rel="stylesheet" href="assets/css/chart.min.css">
+<link rel="stylesheet" href="assets/css/adm_dash.css">
+
+
+<!------------------>
+<!-- scripts used -->
+<!------------------>
+<script type="text/javascript" src="assets/js/datatables.min.js"></script>
+<script type="text/javascript" src="assets/js/adm_client.js"></script>
+<script type="text/javascript" charset="utf8" src="assets/js/adm_order.js"></script>
+<script type="text/javascript" charset="utf8" src="assets/js/chart.bundle.min.js"></script>
+
+
+<div class="container" id="adm_dash">
+
+    <!-- Titre de la page -->
+    <div class="d-flex mt-4 mb-4 col-sm-12 page_title">
+        <h2 class="titrePage"><img src="assets/img/dashboard.png" alt="Icone dashboard" class="icon"/> STATISTIQUES</h2>
+    </div>
+
+    <!-- Audience du site -->
+    <h1 class="titleMain mt-4 w-100 ">Audience du site</h1>
+        <div class="row" id="audienceSite">
+            <!-- Texte de présentation et bouton qui mène à Google analytics -->
+            <div class="col-md-6">
+                <div><strong>o</strong> Nombre de visiteurs</div>
+                <div><strong>o</strong> Nombre de nouveaux visiteurs</div>
+                <div><strong>o</strong> Terminaux utilisés (Ordinateur, smartphone, tablettes)</div>
+                <div><strong>o</strong> Points d'entrée (Google, Réseaux sociaux, URL Directe...)</div>
+                <div><strong>o</strong> Provenance géographique </div>
+                <p>Connectez-vous à GOOGLE Analytics pour observer avec précision le comportement des visiteurs sur le site web.</p></br>
+                <a class="mb-3" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwjz3am6wIXmAhX96OAKHUqgDFIQFjAAegQIARAB&url=https%3A%2F%2Fanalytics.google.com%2Fanalytics%2Fweb%2F&usg=AOvVaw095EntAfOjiijSk290zWyQ" target="_blank">
+                    <input type="submit" value="Go Analytics" name='analytics' class="connexion w-50" onclick="">
+                </a>
+            </div>
+
+            <!-- Image de google analytics -->
+            <div class="col-md-6">
+                <div class="container-home-item col-sm d-flex align-items-center flex-column-center">
+                    <img src="assets/img/analytics_graphic.png" alt="Dashboard Analytics" id="img_analytics"/>
+                </div>
+            </div>
+        </div>
+    
+
+    <!-- Performances Afpanier -->
+    <h1 class="titleMain mt-4 w-100">Performances AFPANIER</h1>
+    <div class="container-home-item col-sm d-flex flex-column" id="performance">
+        <!-- Nombre de clients -->
+        <p class="diagrammes">Nombre de clients</p>
+        <canvas id="myclientChart" width="100" height="25"></canvas>
+        <script>
+            var ctz = document.getElementById('myclientChart');
+            var myclientChart = new Chart(ctz, 
+            {
+                type: 'bar',
+                data: 
+                {
+                    labels: ['Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                    datasets: [
+                        {
+                        label: 'Nombre de clients',
+                        data: [10, 30, 46, 58, 67, 70],
+                        borderWidth: [1, 1, 1, 1, 1, 1],
+                        borderColor : ['rgba(54, 162, 235, 0.45)'],
+                        }]
+                },
+                options: 
+                {
+                    scales: 
+                    {
+                        yAxes: [
+                        {
+                            ticks:
+                                {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
+        </br></br>
+
+        <!-- Panier moyen -->
+        <p class="diagrammes">Panier Moyen</p>
+        <canvas id="myChart" width="100" height="20"></canvas>
+        <script>
+            var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, 
+            {
+                type: 'line',
+                data: 
+                {
+                    labels: ['Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                    datasets: [
+                        {
+                        label: 'Panier moyen en €',
+                        data: [12, 23, 13, 15, 13.5, 12],
+                        backgroundColor: [
+                        'rgba(255, 99, 132, 0.4)',
+
+                        ],
+                        borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+
+                        ],
+                        borderWidth: 1
+                        }]
+                },
+                options: 
+                {
+                    scales: 
+                    {
+                        yAxes: [
+                        {
+                            ticks:
+                            {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
+        </br></br>
+
+        <!-- Nombre de nouveaux clients -->
+        <p class="diagrammes">Répartition des ventes</p>
+        <canvas id="mypieChart" width="100" height="20"></canvas>
+        <script>
+            var cty = document.getElementById('mypieChart');
+            var myPieChart = new Chart(cty, 
+            {
+                type: 'pie',
+                data:
+                {
+                    labels: ['3 Kg', '6 Kg', '9 Kg'],
+                    datasets: [
+                        {
+                        data: [12, 19, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.45)',
+                            'rgba(54, 162, 235, 0.45)',
+                            'rgba(255, 206, 86, 0.45)',
+
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                        ],
+                        borderWidth: 0.5
+                        }]
+                },
+            });
+        </script>
+    </div>
+</div>

@@ -1,0 +1,2 @@
+insert into promo (promo_label, promo_reference, promo_number, promo_type, promo_begin_date, promo_end_date, promo_quantity, promo_status)
+values ("@promo_label", "@promo_reference", @promo_number, "@promo_type", "@promo_begin_date", @promo_end_date, @promo_quantity, 1)

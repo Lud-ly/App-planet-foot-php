@@ -1,0 +1,3 @@
+select id_measureUnit, measureUnit_name, measureUnit_status
+from measureunit
+order by measureUnit_name

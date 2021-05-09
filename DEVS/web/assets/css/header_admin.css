@@ -1,0 +1,86 @@
+.headerAdminLogged {
+    background-color: #7fc241;
+    color: white;
+}
+
+.nameProject {
+    font-size: 20px;
+    color: white;
+}
+
+.titlePage {
+    font-size: 1.4em !important;
+}
+
+.align-items-center {
+    margin-bottom: 0px !important;
+}
+
+
+/* Tablettes 'n' Mobiles */
+
+@media screen and (max-width: 1030px) {
+    .nameProject {
+        font-size: calc(30px + 6 * ((100vw - 320px) / 680));
+    }
+    .titlePage {
+        font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .nameAndTitle {
+        margin-left: calc(17px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+    .logoAfpanier {
+        margin-left: calc(5px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+    .iconsHeader {
+        width: calc(80px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+    /* 
+.fa-user-alt {
+  display: none !important;
+} */
+}
+
+@media screen and (max-width: 500px) {
+    .nameAndTitle {
+        margin-left: calc(5px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+    .logoAfpanier {
+        width: 58px;
+    }
+    .nameProject {
+        font-size: calc(25px + 6 * ((100vw - 320px) / 680));
+    }
+    .titlePage {
+        font-size: calc(15px + 6 * ((100vw - 320px) / 680));
+    }
+    .iconsHeader {
+        width: calc(50px + 6 * ((100vw - 320px) / 680)) !important;
+    }
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: calc(100% - 370px);
+    background-color: #7fc241;
+}
+
+#menuDeconnexion,
+#menuRetourAccueil,
+#menuStatistiques,
+#menuPaniers,
+#menuContenu,
+#menuUtilisateurs {
+    text-align: center;
+}
+
+.logoDeconnexion {
+    width: 20px;
+}

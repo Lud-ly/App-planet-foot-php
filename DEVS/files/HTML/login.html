@@ -1,0 +1,89 @@
+<?php 
+    $page_to_load= "index";
+    if (isset($_SESSION["user_role"])) {
+        switch ($_SESSION["user_role"]) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+		        $page_to_load= "adm_home";
+        }
+    }
+?>
+
+
+<script type="text/javascript">
+	self.location.href= "<?= $page_to_load ?>";
+</script>
+<!-- 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/login.css" />
+<script src="assets/js/login.js"></script>
+
+<div id="containerLogin" class="container">
+    <h1 class="titleMain mt-4 mb-4 w-75">CONNECTEZ-VOUS</h1>    
+        <div class="input-group mb-3 w-75 mx-auto">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Identifiant" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3 w-75 mx-auto">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                    <i class="far fa-eye" onclick="login_affichePwd()"></i>
+                </span>
+            </div>
+            <input type="password" class="form-control" placeholder="Mot de passe" aria-label="Password" aria-describedby="basic-addon1" id="pwd_user" name="pwd_user">
+        </div>
+        
+        <div class="form-group small w-75 mx-auto">
+            <input id="alwaysConnected" name="alwaysConnected" type="checkbox" htmlEscape="true" />
+            <label for="alwaysConnected" class="mb-0">Se souvenir de moi</label>
+            <a onclick="createModal('forgetPwd')" id="motDePasse">Mot de passe oublié?</a>
+        </div>
+        <div class="input-group mb-3 w-50 mx-auto">
+            <input type="submit" class="connexion w-50 mx-auto " value="Connexion" onclick="login_connection()"/>
+        </div>
+
+        <div class="text-center">
+            <a href="register" id="redirectionPageInscription">Pas encore inscrit ?</a>
+        </div>
+</div>
+
+<div class="modal fade" id="maModale" name="maModale" tabindex="-1" role="dialog" aria-labelledby="fenetreModale" aria-hidden="true"></div>
+
+
+<h1 class="titleMain">Connexion au site</h1>
+<div class="w-50 h-75 d-flex justify-content-around align-items-center m-auto">
+    <div class="w-50 p-3" id="connexion">
+        <div class="bordure rounded p-2">
+                <div class="form-group w-75 mx-auto mt-3">
+                    <label for="email_user">Login</label>
+                    <input type="text" class="form-control inputMain" id="email_user" name="email_user" />
+                </div>
+                <div class="form-group w-75 mx-auto">
+                    <label for="pwd_user">Mot de passe</label>
+                    <input type="password" class="form-control inputMain" id="pwd_user" name="pwd_user" />
+                    <span toggle="#password" class="field-icon toggle-password"><i class="far fa-eye" onclick="login_affichePwd()"></i></span>
+                </div>
+                <div class="form-group small w-75 mx-auto">
+                    <input id="alwaysConnected" name="alwaysConnected" type="checkbox" htmlEscape="true" />
+                    <label for="alwaysConnected" class="mb-0">Se souvenir de moi</label>
+                </div>
+                <div class="ml-3 mr-3 mb-2 d-flex justify-content-around align-items-center">
+                    <input type="submit" class="connexion" value="Connexion" onclick="login_connection()"/>
+                    <a onclick="createModal('forgetPwd')" class="mdp text-center">Mot de passe oublié</a>
+                </div> 
+        </div>
+    </div>
+    <div class="text-center" id="inscription">
+        <h2 class="display-5">Pas encore inscrit ?</h2>
+        <a href="register" class="btn btn-vert btn-md">Créez un compte sur Af'Panier </a>
+    </div>
+</div>
+
+
+<div class="modal fade" id="maModale" name="maModale" tabindex="-1" role="dialog" aria-labelledby="fenetreModale" aria-hidden="true"></div> -->
+

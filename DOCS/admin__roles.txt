@@ -1,0 +1,7 @@
+    ◘ >> Les différents rôles possibles pour tout utilisateur (choix unique) :
+		0:     "Utilisateur"
+        1:     "Administrateur Informatique"
+        2:     "Administrateur CRCD"
+        3:     "Administrateur Compta"
+        4:     "Administrateur SuperAdmin"
+

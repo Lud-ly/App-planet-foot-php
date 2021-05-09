@@ -1,0 +1,48 @@
+/**************************** QUESTIONS ****************************/
+.questionFaq
+{
+    width:100%;
+    height:65px;
+    border-style:none;
+    border-radius:10px 10px 0px 0px ;
+}
+
+#question1
+{   
+    background-color:#0dadfc;
+}
+
+#question2
+{
+    background-color:#1eb3fc;
+}
+
+#question3
+{
+    background-color:#32bafc;
+}
+
+#question4
+{
+    background-color:#4ac4ff;
+}
+
+#question5
+{
+    background-color:#5cc7fa;
+}
+
+#question6
+{
+    background-color:#75cffa;
+}
+
+#question7
+{
+    background-color:#8fdbff;
+}
+
+#question8
+{
+    background-color:#a2dffc;
+}

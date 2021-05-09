@@ -1,0 +1,24 @@
+/**************************** IMAGES ET ICONES ****************************/
+#img_analytics
+{
+  width: -webkit-fill-available;
+}
+
+.icon
+{
+  width:40px;
+}
+
+/**************************** TITRES ****************************/
+.titleMain
+{
+  height:50px;
+  background-color:#7fc241;
+  margin-bottom:50px;
+}
+
+/**************************** CONTAINER ****************************/
+#audienceSite
+{
+  margin-bottom: 100px;
+}

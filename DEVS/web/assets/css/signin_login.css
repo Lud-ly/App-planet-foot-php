@@ -1,0 +1,182 @@
+.main-section{
+    overflow-x: hidden !important;
+}
+
+* a {
+    cursor: pointer;
+}
+
+* a:hover {
+    text-decoration: none;
+}
+
+.display-5{
+    color: #7fc241;
+    font-weight: 500;
+}
+.card {
+    font-size: 1em;
+    border-radius: 5px!important;
+    height: 100%;
+}
+
+.card-header {
+    background-color: #7fc241!important;
+    color: rgb(255, 255, 255);
+}
+
+#result {
+    padding-left : 10px;
+}
+
+.short {
+    color: #FF0000;
+    font-size: small;
+}
+
+.weak {
+    color: orange;
+    font-size: 0.8rem;
+}
+
+.good {
+    color: blue;
+    font-size: 0.8rem;
+}
+
+.strong {
+    color: limegreen;
+    font-size: 0.8rem;
+}
+
+.btn-valid {
+    background-color: #de1f85;
+    color: rgb(255, 255, 255);
+    transition: 1s;
+}
+
+.btn-valid:hover {
+    color: #de1f85;
+    border-color: #de1f85;
+    background-color: rgb(255, 255, 255);
+    transition: 1s;
+}
+
+.btn-vert {
+    background-color: #7fc241;
+    color: rgb(255, 255, 255);
+    transition: 1s;
+} 
+
+.btn-vert:hover {
+    border-color: #7fc241;
+    background-color: rgb(255, 255, 255);
+    color: #7fc241!important;
+    transition: 1s;
+}
+
+a .btn-vert {
+    color: rgb(255, 255, 255)!important;
+    transition: 1s;
+}
+a .btn-vert:hover{
+    color: #7fc241!important;
+    transition: 1s;
+}
+
+
+.btn-bleu {
+    background-color: #00aaff;
+    color: rgb(255, 255, 255);
+    transition: 1s;
+}
+
+.btn-bleu:hover {
+    border-color: #00aaff;
+    background-color: rgb(255, 255, 255);
+    color: #00aaff;
+    transition: 1s;
+}
+
+.picto-item {
+    position: relative;  /*les .picto-item deviennent référents*/
+    cursor: help;
+    border-radius: 50%;
+  }
+  
+  /* on génère un élément :after lors du survol et du focus :*/
+  
+  .picto-item:hover:after,
+  .picto-item:focus:after {
+    content: attr(aria-label);  /* on affiche aria-label */
+    position: absolute;
+    top: -2.4em;
+    left: 50%;
+      transform: translateX(-50%); /* on centre horizontalement  */
+    z-index: 1; /* pour s'afficher au dessus des éléments en position relative */
+    white-space: nowrap;  /* on interdit le retour à la ligne*/
+    padding: 5px 14px;
+    background: #00aaff;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.8rem;
+  }
+  
+  /* on génère un second élément en :before pour la flèche */
+  
+  [aria-label]:hover:before,
+  [aria-label]:focus:before {
+    content: "▼";
+    position: absolute;
+    top: -1em;
+      left: 50%;
+      transform: translateX(-50%); /* on centre horizontalement  */
+    font-size: 20px;
+    color: #413219;
+  }
+  
+  /* pas de contour durant le :focus */
+  [aria-label]:focus {
+    outline: none;
+  }
+
+.hide {
+    display: none!important;
+}
+
+.modal-title{
+    color: #00aaff;
+    font-weight: 500;
+}
+.signin-link {
+    font-size: 1.2em;
+}
+
+.signin-link:hover {
+    /*font-weight: 1.2em;*/
+    color: #00aaff;
+    text-decoration: none;
+}
+
+
+.field-icon {
+    float: right;
+    margin-right: 5px;
+    margin-top: -35px;
+    position: relative;
+    z-index: 2;
+}
+
+.field-icon>img{
+    width: 20px;
+}
+
+.g-recaptcha {
+    margin: 0 auto;
+    width: 304px;
+  }
+
+.marge{
+    padding: 10px!important;
+}
+  

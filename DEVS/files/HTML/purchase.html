@@ -1,0 +1,136 @@
+<!-- <link rel="stylesheet" href="assets/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="assets/css/purchase.css">
+<link rel="stylesheet" href="assets/css/fontawesome.min.css"> -->
+
+<!-- LINK -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css" />
+<link rel="stylesheet" href="assets/css/datatables_commun.css">
+<link rel="stylesheet" href="assets/css/purchase.css">
+
+<!-- SCRIPT -->
+
+<!-- <script type="text/javascript" src="assets/DataTables/datatables.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
+<script type="text/javascript" src="assets/js/purchase.js"></script>
+
+
+<!-- Partie HTML et Tableau -->
+<section class="container-fluid">
+    <!-- Titre de la section centrale de la page -->
+
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6 purchase_main_title">
+                    <h2>Mes commandes</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a href="index" class="btn btn-green purchase_button_add"><span>Retour à l'accueil</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- En-tête du tableau des commandes -->
+        <table class="table table-striped table-hover dt-responsive nowrap" id="table_commandes">
+            <thead>
+                <tr>
+                    <th class="purchase_toggle"></th>
+                    <th class="purchase_reference">Référence</th>
+                    <th class="purchase_date">date de commande</th>
+                    <th class="purchase_th_status">Statut</th>
+                    <th class="purchase_action text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody id="order_panier_detail">
+            </tbody>
+
+        </table>
+
+        <!-- Pagination -->
+        <!-- <div class="clearfix">
+            <div class="hint-text">Affichage de <b>5</b> entrées sur <b>100</b></div>
+            <ul class="pagination">
+                <li class="page-item disabled"><a>Previous</a></li>
+                <li class="page-item active"><a class="page-link" aria-controls="example" data-dt-idx="1" tabindex="0">1</a></li>
+                <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li>
+                <li class="page-item"><a class="page-link">4</a></li>
+                <li class="page-item"><a class="page-link">5</a></li>
+                <li class="page-item"><a class="page-link">Next</a></li>
+            </ul>
+        </div>
+    </div> -->
+
+        <!-- MODAL FOR THE BUTTON DELETE -->
+        <div class="modal fade" id="purchase_SupprModal" role="dialog" aria-labelledby="order_modifmodal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="order_modal">Etes-vous sûr de vouloir annuler cette commande?</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-cancel" data-dismiss="modal" value="Cancel">
+                        <input type="button" class="btn btn-green order_delete_indice" data-dismiss="modal" value="Confirmer">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL FOR THE INFORMATION ICON -->
+        <div class="modal fade " id="purchase_infoModal" role="dialog" aria-labelledby="purchase_i_info" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="order_modal">Information</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="purchase_modal_body">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL FOR THE INFORMATION ICON -->
+        <div class="modal fade " id="purchase_infoModal_canceled" role="dialog" aria-labelledby="purchase_i_info" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="order_modal">Information</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="purchase_modal_body">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+</section>

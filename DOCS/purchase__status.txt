@@ -1,0 +1,7 @@
+    ◘ >> Les différents statuts possibles pour toute commande (choix unique) :
+        1:     "Non confirmée"
+        2:     "Validée"
+        3:     "Payée"
+        4:     "Retirée"
+        5:     "Terminée"
+        6:     "Annulée"

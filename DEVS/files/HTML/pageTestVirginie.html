@@ -1,0 +1,27 @@
+<!----------------->
+<!-- styles used -->
+<!----------------->
+<link rel="stylesheet" href="assets/css/header.css">
+<link href='fullcalendar/main.css' rel='stylesheet' />
+
+
+<!------------------>
+<!-- scripts used -->
+<!------------------>
+<script src="assets/js/header.js"></script>
+<script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
+<script src='fullcalendar/main.js'></script>
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth'
+    });
+    calendar.render();
+  });
+
+</script>
+<div id='calendar'></div>
