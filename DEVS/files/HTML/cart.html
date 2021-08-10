@@ -1,0 +1,111 @@
+<!-- <?php
+    redirectToHomePageIfNoUserConnected();
+?> -->
+
+<!-- LINK -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/datatables_commun.css" />
+<link rel="stylesheet" href="assets/css/cart.css">
+
+<!-- SCRIPT -->
+
+<script type="text/javascript" src="assets/DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="assets/Datatables/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
+<!-- <script type="text/javascript" src="assets/js/dataTables.responsive.min.js"></script> -->
+<script type="text/javascript" src="assets/Datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="assets/js/responsive.bootstrap4.min.js"></script>
+<script type="text/javascript" src="assets/js/cart.js"></script>
+
+
+<section>
+
+
+    <div class="container-fluid">
+        <!-- Start Datatables -->
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6 cart_main_title">
+                        <h2>Mon panier</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="index" class="btn btn-green cart_button_add"><span>Retour à l'accueil</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover dt-responsive" id="table_cart">
+
+            </table>
+        </div>
+
+        <!---------------- PROMO SECTION -------------->
+
+        <div class="container-fluid mt-5 d-flex justify-content-end cart_codePromo" id="cart_divcodepromo">
+            <div class="cart_codePromo text-right mb-2">
+                <label for="cart_promo" id="cart_label_promo">Code Promo : </label>
+                <input class="inputMain text-uppercase" id="cart_promo" name="cart_promo" type="text" />
+                <i onclick="cart_promo()"
+                    class="mt-1 ml-2 fas fa-arrow-alt-circle-right cart_icon cart_icon_increase button"
+                    id="cart_promoButton"></i>
+                <div class="container-fluid mt-1 cart_price col-md-11 text-right" id="cart_msgPromo"
+                    name="cart_msgPromo"></div>
+            </div>
+        </div>
+
+
+
+
+        <!---------- CART TOTAL ------------------->
+
+        <div class="container-fluid mt-4 d-flex justify-content-end text-center cart_totalDiv">
+            <div class="cart_total cart_codePromo"><span class="total">Total :</span>&nbsp;&nbsp;&nbsp;<span
+                    class="cart_totalText" id="cart_total"></span> €</div>
+        </div>
+        <div class="container-fluid d-flex justify-content-end mb-4 mt-2 cart_totalDiv">
+            <div class="container cart_codePromo cart_textPromo text-center text-danger" id="cart_textPromo">
+            </div>
+        </div>
+        <div class="container-fluid mt-3 mb-3 d-flex justify-content-end text-center cart_totalDiv">
+            <div class="cart_total cart_codePromo cart_total_div"><span class="total">A régler :</span>&nbsp;&nbsp;<span
+                    class="cart_totalText" id="cart_Prix_final"></span>
+            </div>
+        </div>
+
+        <!---------------- BUTTON ------------------->
+
+        <div class="container d-flex justify-content-around mb-5" id="cart_validation_commande">
+            <button onclick="cart_validated()" class="commander text-nowrap btn-cancel" id="cart_btn_valider"
+                data-toggle="modal" data-target="#cart_modal" data-backdrop="">Terminer ma commande</button>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade " id="cart_modal" role="dialog" aria-labelledby="purchase_i_info" aria-hidden="true">
+    <div class="modal-dialog" id="cart_modal_dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirmation de commande</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Votre commande n° <strong><span id="cart_orderNumber"></span></strong> a bien été
+                    enregistrée.</p>
+                <div id="cart_modalMessage"></div>
+            </div>
+            <div class="row col-lg-12 modal-footer" id="cart_modal_footer">
+                <div class="d-flex col-lg-4 col-sm-12 cart_footer_btn">
+                    <a href="index" type="button" class="btn btn-cancel cart_btn">Retour à l'accueil</a>
+                </div>
+                <div class="d-flex col-lg-4 col-sm-12 cart_footer_btn">
+                    <a href="purchase" type="button" class="btn btn-green cart_btn">Voir mon historique de commandes</a>
+                </div>
+                <div class="d-flex col-lg-4 col-sm-12 cart_footer_btn">
+                    <a href="logout" type="button" class="btn btn-dark cart_btn">Se déconnecter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>F

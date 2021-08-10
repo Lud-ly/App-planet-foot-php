@@ -73,10 +73,10 @@ function adm_purchase_constructTable() {
     var sHTML = '';
     sHTML += '<thead>';
     sHTML += '<tr>';
+    sHTML += '<th>Nom</th>';
     sHTML += '<th>Producteur</th>';
     sHTML += '<th>Famille</th>';
-    sHTML += '<th>Nom</th>';
-    sHTML += '<th>image</th>';
+    sHTML += '<th>Image du Panier</th>';
     sHTML += '<th>Descritpion</th>';
     sHTML += '<th>Nombre de panier(s)</th>';
     sHTML += '<th>Prix</th>';
@@ -90,7 +90,7 @@ function adm_purchase_constructTable() {
         sHTML += '<td data-label="supplier">' + aOfBasket[i]["supplier_name"] + " " + aOfBasket[i]["supplier_firstname"] + '</td>';
         sHTML += '<td data-label="mainBasket">' + aOfBasket[i]["mainBasket_name"] + '</td>';
         sHTML += '<td data-label="name">' + aOfBasket[i]["basket_name"] + '</td>';
-        sHTML += '<td data-label="image">' + aOfBasket[i]["basket_image"] + '</td>';
+        sHTML += `<td data-label="Image"><img class="basket_img" src="assets/img/` + aOfBasket[i]["basket_image"] + ` " alt="Image du panier" title="Voir la carte" /></td>`;
         sHTML += '<td data-label="description">' + htmlspecialchars_decode(aOfBasket[i]["basket_description"]) + '</td>';
         sHTML += '<td data-label="ref">' + aOfBasket[i]["basket_number"] + " / " + aOfBasket[i]['basket_quantity'] + '</td>';
         sHTML += '<td data-label="price">' + aOfBasket[i]["basket_price"] + '</td>';

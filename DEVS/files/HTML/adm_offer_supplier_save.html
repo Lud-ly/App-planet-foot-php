@@ -1,0 +1,8 @@
+<?php
+		$array_res[0] = array(
+			'error' => $oMain->resultat["adm_offer_supplier_save"]["error"], 
+			'id_supplier' => $oMain->resultat["id_offer_supplier_created"]
+		);
+		// Prepare and send view
+		echo json_encode ($array_res);
+?>

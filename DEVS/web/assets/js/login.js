@@ -370,6 +370,8 @@ function login_newUser()
         {
             //info manquante, mail exitant
             createModal('errorCreateUser');
+        } if (result[0]['code'] == "USER NOT FOUND") {
+            
         }
         else
         {

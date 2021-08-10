@@ -60,15 +60,26 @@ Class Index_service extends Initialize	{
         $this->resultat["index_list_basket"]= $this->oBdd->getSelectDatas($spathSQL, array());
     }
 
-  //   /**
-  //    * READ SUPPLIER TABLE
-  //    * 
-  //    * GET SUPPLIER LIST FROM DATABASE
-  //    */
-  //   public function index_list_supplier() {
-  //     $spathSQL= $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "index_list_supplier.sql";
-  //     $this->resultat["index_list_supplier"]= $this->oBdd->getSelectDatas($spathSQL, array());
-  // }
+      /**
+     * READ ARTICLES NEWS
+     * 
+     * GET NEWS ARTICLES  LIST FROM DATABASE
+     */
+    public function index_list_articles_news() {
+      $spathSQL= $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "index_list_articles_news.sql";
+      $this->resultat["index_list_articles_news"]= $this->oBdd->getSelectDatas($spathSQL, array());
+  }
+      /**
+     * READ STEP & SECTION DEV
+     * 
+     * GET "QUI SOMMES NOUS", SECTION DEV AND STEP LIST FROM DATABASE
+     */
+    public function index_list_step_news() {
+      $spathSQL= $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "index_list_step_news.sql";
+      $this->resultat["index_list_step_news"]= $this->oBdd->getSelectDatas($spathSQL, array());
+  }
+
+  
 
 }
   

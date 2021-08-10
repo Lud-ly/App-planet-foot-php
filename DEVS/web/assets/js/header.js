@@ -8,15 +8,96 @@ var sHTML_datalist = "";
 var iIndiceData = ""
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     loadAdm_admin();
     loadPersonnes();
 });
 
+function emptyLogin() {
+    if ($('#login_username').val() == "") {
+        $('#sp_error_login_username').html("Identifiant obligatoire");
+        $('#login_username').css("border", "1px solid #7fc241");
+        $('#sp_error_login_username').css("color", "red");
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function emptyPassword() {
+    if ($('#login_password').val() == "") {
+        $('#sp_error_login_password').html("Mot de passe obligatoire");
+        $('#login_password').css("border", "1px solid #7fc241");
+        $('#sp_error_login_password').css("color", "red");
+        return true;
+    } else {
+        return false;
+    };
+}
+
+function initErrorInput() {
+    $('#sp_error_login_username').html("");
+    $('#sp_error_login_password').html("");
+    $("#sp_error_connexion").html("");
+}
+
+function areLoginAndPasswordInputsFilled() {
+    var loginInput = $("#login_username").val();
+    var passwordInput = $("#login_password").val();
+    if (loginInput != "" && passwordInput != "") {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function signin_login() {
+    //Reinit des champs errur
+    initErrorInput()
+
+    //Vérif des champs login et password
+    emptyLogin();
+    emptyPassword();
+
+
+    //Si les champs login ET password ne sont pas vide on lance la requete AJAZX
+    areLoginAndPasswordInputsFilled();
+    if (areLoginAndPasswordInputsFilled()) {
+        // REQUETE AJAX
+        var datas = {
+            page: "login",
+            login_username: $('#login_username').val(),
+            login_password: $('#login_password').val(),
+            bJSON: 1
+        }
+        $.ajax({
+            type: "POST",
+            url: "route.php",
+            async: true,
+            data: datas,
+            dataType: "json",
+            cache: false
+        })
+            .done(function (result) {
+                if (result[0]["code"] == "001") {
+                    self.location.href = result[0]["url"];
+                }
+                if (result[0]["code"] == "007") {
+                    //Cas ou l'utilisateur n'est pas trouvé dans la BDD
+                    // On affiche le msg d'erreur du retour backend
+                    $("#sp_error_connexion").html(result[0]["message"]);
+                }
+            })
+            .fail(function (err) {
+                alert('error : ' + err.status);
+            })
+    }
+}
 
 function loadAdm_admin() {
     showLoadingModal();
-    
+
     constructTable();
     hideLoadingModal();
 
@@ -48,14 +129,14 @@ function constructTable() {
 /****************** Exemple de tableau d'utilisateurs du site ******************/
 
 var resultat = [{ "id_user": "1", "id_center": "2", "user_mail": "jijou@gmail.com", "user_firstname": "Jijou", "user_name": "Pagan", "user_identifier": "1 705 1256", "user_phoneNumber": "06.55.44.11.22", "user_role": "4", "user_function": "Formateur DWWM/CDA", "user_gender": "1" },
-    { "id_user": "2", "id_center": "1", "user_mail": "mymy@gmail.com", "user_firstname": "Mymy", "user_name": "zoltan", "user_identifier": "1 705 1256", "user_phoneNumber": "06.55.44.11.22", "user_role": "2", "user_function": "Stagiaire CDA", "user_gender": "2" },
-    { "id_user": "5", "id_center": "1", "user_mail": "boris.zoltan@gmail.com", "user_firstname": "Boris", "user_name": "zoltan", "user_identifier": "1 308 9285", "user_phoneNumber": "06.55.44.11.22", "user_role": "5", "user_function": "Stagiaire ACOM", "user_gender": "1" },
-    { "id_user": "6", "id_center": "1", "user_mail": "michel.debussy@gmail.com", "user_firstname": "Michel", "user_name": "Debussy", "user_identifier": "1 123 5468", "user_phoneNumber": "06.55.44.11.22", "user_role": "4", "user_function": "Stagiaire CDA", "user_gender": "1" },
-    { "id_user": "21", "id_center": "1", "user_mail": "christian.dupont@gmail.com", "user_firstname": "Christian", "user_name": "Dupont", "user_identifier": "1 325 6326", "user_phoneNumber": "06.55.44.11.22", "user_role": "3", "user_function": "Formateur Compta", "user_gender": "1" },
-    { "id_user": "22", "id_center": "1", "user_mail": "enselme.lupin@gmail.com", "user_firstname": "Enselme", "user_name": "Lupin", "user_identifier": "1 585 2365", "user_phoneNumber": "06.55.44.11.22", "user_role": "5", "user_function": "Stagiaire Compta", "user_gender": "1" },
-    { "id_user": "27", "id_center": "1", "user_mail": "lucie.lemoine@gmail.com", "user_firstname": "Lucie", "user_name": "Lemoine", "user_identifier": "1 546 2368", "user_phoneNumber": "06.55.44.11.22", "user_role": "5", "user_function": "Stagiaire CRCD", "user_gender": "2" },
-    { "id_user": "28", "id_center": "1", "user_mail": "virginie@gmail.com", "user_firstname": "Virginie", "user_name": "Vigneron", "user_identifier": "1 857 3496", "user_phoneNumber": "06.55.44.11.22", "user_role": "2", "user_function": "Formatrice CRCD", "user_gender": "2" },
-    { "id_user": "37", "id_center": "1", "user_mail": "guy@gmail.com", "user_firstname": "Guy", "user_name": "Perez", "user_identifier": "1 704 3209", "user_phoneNumber": "06.55.44.11.22", "user_role": "1", "user_function": "Stagiaire CDA", "user_gender": "1" },
+{ "id_user": "2", "id_center": "1", "user_mail": "mymy@gmail.com", "user_firstname": "Mymy", "user_name": "zoltan", "user_identifier": "1 705 1256", "user_phoneNumber": "06.55.44.11.22", "user_role": "2", "user_function": "Stagiaire CDA", "user_gender": "2" },
+{ "id_user": "5", "id_center": "1", "user_mail": "boris.zoltan@gmail.com", "user_firstname": "Boris", "user_name": "zoltan", "user_identifier": "1 308 9285", "user_phoneNumber": "06.55.44.11.22", "user_role": "5", "user_function": "Stagiaire ACOM", "user_gender": "1" },
+{ "id_user": "6", "id_center": "1", "user_mail": "michel.debussy@gmail.com", "user_firstname": "Michel", "user_name": "Debussy", "user_identifier": "1 123 5468", "user_phoneNumber": "06.55.44.11.22", "user_role": "4", "user_function": "Stagiaire CDA", "user_gender": "1" },
+{ "id_user": "21", "id_center": "1", "user_mail": "christian.dupont@gmail.com", "user_firstname": "Christian", "user_name": "Dupont", "user_identifier": "1 325 6326", "user_phoneNumber": "06.55.44.11.22", "user_role": "3", "user_function": "Formateur Compta", "user_gender": "1" },
+{ "id_user": "22", "id_center": "1", "user_mail": "enselme.lupin@gmail.com", "user_firstname": "Enselme", "user_name": "Lupin", "user_identifier": "1 585 2365", "user_phoneNumber": "06.55.44.11.22", "user_role": "5", "user_function": "Stagiaire Compta", "user_gender": "1" },
+{ "id_user": "27", "id_center": "1", "user_mail": "lucie.lemoine@gmail.com", "user_firstname": "Lucie", "user_name": "Lemoine", "user_identifier": "1 546 2368", "user_phoneNumber": "06.55.44.11.22", "user_role": "5", "user_function": "Stagiaire CRCD", "user_gender": "2" },
+{ "id_user": "28", "id_center": "1", "user_mail": "virginie@gmail.com", "user_firstname": "Virginie", "user_name": "Vigneron", "user_identifier": "1 857 3496", "user_phoneNumber": "06.55.44.11.22", "user_role": "2", "user_function": "Formatrice CRCD", "user_gender": "2" },
+{ "id_user": "37", "id_center": "1", "user_mail": "guy@gmail.com", "user_firstname": "Guy", "user_name": "Perez", "user_identifier": "1 704 3209", "user_phoneNumber": "06.55.44.11.22", "user_role": "1", "user_function": "Stagiaire CDA", "user_gender": "1" },
 ]
 
 /****************** Suite séléction code bénéficiaire: Affichage des données dans les inputs correspondants ******************/
@@ -123,27 +204,27 @@ const configuration = {
     },
 
     "columns": [{
-            "orderable": true
-        },
-        {
-            "orderable": true
-        },
+        "orderable": true
+    },
+    {
+        "orderable": true
+    },
 
-        {
-            "orderable": true
-        },
-        {
-            "orderable": true
-        },
-        {
-            "orderable": true
-        },
-        {
-            "orderable": true
-        },
-        {
-            "orderable": false
-        },
+    {
+        "orderable": true
+    },
+    {
+        "orderable": true
+    },
+    {
+        "orderable": true
+    },
+    {
+        "orderable": true
+    },
+    {
+        "orderable": false
+    },
     ],
     'retrieve': true,
     "responsive": true
@@ -155,8 +236,8 @@ const configuration = {
 
 /****************** Vérification de la force du mot de passe ******************/
 var bValidPwd = false;
-$(document).ready(function() {
-    $('#password').keyup(function() {
+$(document).ready(function () {
+    $('#password').keyup(function () {
         $('#result').html(signin_checkStrength($('#password').val()))
     })
 
@@ -172,13 +253,13 @@ $(document).ready(function() {
         }
         //Si la longueur du mot de passe atteind 8 caractères : strength + 1.
         if (password.length > 9) strength += 1
-            //Si le mot de passe contient minuscules et manuscules : strength + 1.
+        //Si le mot de passe contient minuscules et manuscules : strength + 1.
         if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1
-            //Si le mot de passe contient un caractère numérique : strength + 1.
+        //Si le mot de passe contient un caractère numérique : strength + 1.
         if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) strength += 1
-            //Si le mot de passe contient 1 caractère spécial : strength + 1.
+        //Si le mot de passe contient 1 caractère spécial : strength + 1.
         if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) strength += 1
-            //Si le mot de passe contient 2 caractères spéciaux : strength + 1.
+        //Si le mot de passe contient 2 caractères spéciaux : strength + 1.
         if (password.match(/(.*[!,%,&,@,#,$,^,*,?,_,~].*[!,%,&,@,#,$,^,*,?,_,~])/)) strength += 1
 
         //Après calcul de la variable strength
@@ -207,7 +288,7 @@ $(document).ready(function() {
             return 'Mot de passe sécurisé'
         }
     }
-    $(".toggle-password").click(function() {
+    $(".toggle-password").click(function () {
         var input = $($(this).attr("toggle"));
         if (input.attr("type") == "password") {
             input.attr("type", "text");

@@ -16,7 +16,8 @@ require_once  "initialize.php";
  * @version v1.0
  */
 
-Class Login_service extends Initialize	{
+class Login_service extends Initialize
+{
 
 	/**
 	 * public $resultat is used to store all datas needed for HTML Templates
@@ -24,13 +25,13 @@ Class Login_service extends Initialize	{
 	 */
 	public $resultat;
 
-		/**
+	/**
 	 * public $resultat is used to store all datas needed for HTML Templates
 	 * @var int
 	 */
 	private $id_user;
 
-			/**
+	/**
 	 * public $resultat is used to store all datas needed for HTML Templates
 	 * @var date
 	 */
@@ -41,7 +42,8 @@ Class Login_service extends Initialize	{
 	 *
 	 * execute main function
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 		// Call Parent Constructor
 		parent::__construct();
 
@@ -50,10 +52,10 @@ Class Login_service extends Initialize	{
 
 		// $this->id_user= $_SESSION["id_user"];
 
-		$this->now= "";
+		$this->now = "";
 
 		// execute main function
-		
+
 	}
 
 	/**
@@ -61,22 +63,44 @@ Class Login_service extends Initialize	{
 	 * Destroy service
 	 *
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		// Call Parent destructor
 		parent::__destruct();
 		// destroy objet_service
 		unset($objet_service);
 	}
 
-	public function date_last_connexion() {
+	public function date_last_connexion()
+	{
 		date_default_timezone_set('Europe/Paris');
 		$this->now = date("Y-m-d H:i:s");
 
-		$spathSQL= $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "update_date_last_connection.sql";
-		$this->resultat["adm_client_update"]= $this->oBdd->treatDatas($spathSQL, array(
-																									"id_user" => $_SESSION['id_user'],
-																									"user_date_last_connection" => $this->now,
+		$spathSQL = $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "update_date_last_connection.sql";
+		$this->resultat["adm_client_update"] = $this->oBdd->treatDatas($spathSQL, array(
+			"id_user" => $_SESSION['id_user'],
+			"user_date_last_connection" => $this->now,
 		));
+	}
+
+
+	/**
+	 * Returns the internal user Id
+	 * 
+	 * @param string|int $externalUserId The AfpaConnect user id
+	 * 
+	 * @return int|null The afpanier user id OR null on failure
+	 */
+	public function getInternalUserId($externalUserId)
+	{
+		$sSqlPath = $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "login__get_internal_user_id.sql";
+		$jResult = $this->oBdd->getSelectDatas($sSqlPath, [
+			'externalUserId' => $externalUserId
+		]);
+		if (empty($jResult)) {
+			return;
+		}
+		return +$jResult[0]['userId'];
 	}
 
 	/**
@@ -87,10 +111,11 @@ Class Login_service extends Initialize	{
 	 * 
 	 * @return array|null Null if unknown user
 	 */
-	public function getUserInfos(string $userLogin, array $exclude = []) {
+	public function getUserInfos(string $userLogin, array $exclude = [])
+	{
 		$sqlPath = $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "login__get_user_infos.sql";
 		$result = $this->oBdd->getSelectDatas($sqlPath, [
-				'userLogin' => $userLogin
+			'userLogin' => $userLogin
 		]);
 		if (isEmpty($result)) {
 			return;
@@ -105,8 +130,14 @@ Class Login_service extends Initialize	{
 		return $result;
 	}
 
-}
+	public function add_counter_counter_user__mainBasket()
+	{
+		$spathSQL = $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "adm__user__mainBasket_count_connection.sql";
+		return  $this->oBdd->treatDatas($spathSQL, array(
+			"id_user" => $_SESSION["id_external_user"]
+		));
+		error_log("appel à l'intérieur de la fonction : " . $_SESSION['id_external_user']);
+	}
+
 	
-
-?>
-
+}

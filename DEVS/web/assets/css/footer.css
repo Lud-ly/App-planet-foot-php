@@ -1,0 +1,69 @@
+/********************************************************
+                        FOOTER
+********************************************************/
+
+#footer_afpalab {
+  width: 65px;
+}
+
+.logo_eloce {
+  width: 110px;
+}
+
+#footer_contact {
+  font-size: smaller;
+}
+
+#footer_contact > p,
+#footer_a {
+  margin-top: 10px !important;
+  margin-bottom: 10 !important;
+}
+
+#footer_div {
+  margin: 0 !important;
+  align-items: center;
+  font-family: FingerPaint;
+}
+
+#footer_ul {
+  list-style-type: none;
+  padding-left: 0 !important;
+}
+
+#footer_ul > li {
+  margin-top: 10px !important;
+}
+
+#footer_desc_afpa > p {
+  font-size: 11px;
+  padding: 0 10px;
+}
+
+.footer-img {
+  text-align: center;
+}
+
+#footer_h2 {
+  margin: 0px;
+}
+
+/**********************************************************
+                    MEDIA QUERY FOOTER
+**********************************************************/
+
+@media screen and (max-width: 1000px) {
+  .footer-img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #footer_h2 {
+    text-align: center;
+  }
+  #footer_contact {
+    text-align: center;
+    margin-top: 0;
+  }
+}

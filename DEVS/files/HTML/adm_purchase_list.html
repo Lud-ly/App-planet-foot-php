@@ -1,0 +1,9 @@
+<?php
+    $array_res[0] = array(
+        'adm_purchase_list' => $oMain->resultat["adm_purchase_list"],
+        'adm_purchase_list_ingredient'=> $oMain->resultat['adm_purchase_list_ingredient'],
+        'adm_purchase_codePromo' => $oMain->resultat['adm_purchase_codePromo'],
+    );
+    // Prepare and send view
+    echo json_encode ($array_res);
+?>

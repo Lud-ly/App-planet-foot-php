@@ -49,16 +49,16 @@ var tables
 $(function() {
     cartlist();
     // apply an invalid pattern if the promo code input is empty
-    checkIfEmptyPromoCode();
+    checkIfEmptyPromoReference();
     $('#cart_promo').on('blur', function() {
-        checkIfEmptyPromoCode();
+        checkIfEmptyPromoReference();
     })
 })
 
 /**
  * If the promo code input is empty : apply an invalid pattern
  */
-function checkIfEmptyPromoCode(input = $('#cart_promo')) {
+function checkIfEmptyPromoReference(input = $('#cart_promo')) {
     if ( isEmpty(input.val()) ) {
         setInvalidPattern(input);
     } else {

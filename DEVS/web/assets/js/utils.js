@@ -70,6 +70,31 @@ function getDateWithZero(sDate = '2020-4-1') {
 // ◘◘ >> MIXED
 
 /**
+ * Returns a copy of the supplied value. (if an object is supplied : all value)
+ *  - array: all values are copied.  Object.values( val )
+ *  - JSON: all values are copied.  Object.assign( {}, val )
+ *  - other: the value is returned.  val
+ * 
+ * @param {*} val The value to copy
+ * 
+ * @returns {*} Same type as provided value
+ */
+function copy(val)
+{
+    let sType = typeof(val);
+    switch (true) {
+        case (sType === 'object'):
+            if (Array.isArray(val)) {
+                return Object.values( val );
+            } else {
+                return Object.assign( {}, val );
+            }
+        default:
+            return val;
+    }
+}
+
+/**
  * Returns if a data is empty or not
  * 
  * @param {*} val The value to check
@@ -91,7 +116,7 @@ function isEmpty(val) {
 }
 
 /**
- * Return a value, or a specified value if error/null
+ * Return a value, or a specified value if missing key
  *  let o = {
 		'prop_1': {
 			'prop_1_A': {
@@ -99,37 +124,137 @@ function isEmpty(val) {
 			}
 		}
 	}
-	valOr(o,   "prop_1, TOTO; prop_1_B",   "not found")             // will return 'not found'
-	valOr(o,   "prop_1, prop_1_A; prop_1_B",   "not found")         // will return 'val_1_B'
+	valOr(o,   "prop_1, TOTO, prop_1_B",   "not found")             // will return 'not found'
+	valOr(o,   "prop_1, prop_1_A, prop_1_B",   "not found")         // will return 'val_1_B'
 
 * @param {Object|*} val The value | object
 * @param {string|Array} keysIfInObject If Object provided, the keys to check
-* @param {*} valOtherwise Value to return if error|null value
+* @param {*} valOtherwise Value to return if the key does not exist
 * 
 * @returns {*}
 */
 function valOr(val, keysIfInObject = '', valOtherwise = undefined) {
-    if (isEmpty(keysIfInObject)) {
-        return getResult(obj);
-    }
     keysIfInObject = toArray(keysIfInObject);
     try {
         let value = val;
         for (let i = 0; i < keysIfInObject.length; i++) {
+            if ( !value.hasOwnProperty(keysIfInObject[i]) ) {
+                return valOtherwise;
+            }
             value = value[keysIfInObject[i]];
         }
-        return getResult(value);
+        return value;
     } catch (err) {
         return valOtherwise;
     }
-
-    function getResult(val) {
-        return (val == null) ?
-            valOtherwise :
-            val;
-    }
 }
 
+/**
+ * Return a value, or a specified value if missing key/not array
+ *  let o = {
+		'prop_1': {
+			'prop_1_A': {
+				'prop_1_B': ['test']
+			}
+		}
+	}
+	valOr(o,   "prop_1, TOTO, prop_1_B",   "not found")             // will return 'not found'
+	valOr(o,   "prop_1, prop_1_A, prop_1_B",   "not found")         // will return ['test']
+
+* @param {Object|*} val The value | object
+* @param {string|Array} keysIfInObject If Object provided, the keys to check
+* @param {*} valOtherwise Value to return if the key does not exist or if the value is not an array
+* 
+* @returns {*}
+*/
+function arrValOr(val, keysIfInObject = '', valOtherwise = undefined) {
+    let result = valOr(...arguments);
+    if (!Array.isArray(result)) {
+        return valOtherwise;
+    }
+    return result;
+}
+
+/**
+ * Return a value, or a specified value if missing ket/not JSON
+ *  let o = {
+		'prop_1': {
+			'prop_1_A': {
+				'prop_1_B': 34
+			}
+		}
+	}
+	valOr(o,   "prop_1, TOTO, prop_1_B",   "not found")             // will return 'not found'
+	valOr(o,   "prop_1, prop_1_A, prop_1_B",   "not found")         // will return 34
+
+* @param {Object|*} val The value | object
+* @param {string|Array} keysIfInObject If Object provided, the keys to check
+* @param {*} valOtherwise Value to return if the key does not exist or if the value is not a JSON
+* 
+* @returns {*}
+*/
+function intValOr(val, keysIfInObject = '', valOtherwise = undefined) {
+    let result = valOr(...arguments);
+    if (!Number.isInteger(result)) {
+        return valOtherwise;
+    }
+    return result;
+}
+
+/**
+ * Return a value, or a specified value if missing ket/not JSON
+ *  let o = {
+		'prop_1': {
+			'prop_1_A': {
+				'prop_1_B': {test: true}
+			}
+		}
+	}
+	valOr(o,   "prop_1, TOTO, prop_1_B",   "not found")             // will return 'not found'
+	valOr(o,   "prop_1, prop_1_A, prop_1_B",   "not found")         // will return {test: true}
+
+* @param {Object|*} val The value | object
+* @param {string|Array} keysIfInObject If Object provided, the keys to check
+* @param {*} valOtherwise Value to return if the key does not exist or if the value is not a JSON
+* 
+* @returns {*}
+*/
+function jsonValOr(val, keysIfInObject = '', valOtherwise = undefined) {
+    let result = valOr(...arguments);
+    if (
+        (typeof(result) !== 'object') &&
+        !Array.isArray(result)
+    ) {
+        return valOtherwise;
+    }
+    return result;
+}
+
+/**
+ * Return a value, or a specified value if missing key/not string
+ *  let o = {
+		'prop_1': {
+			'prop_1_A': {
+				'prop_1_B': 'val_1_B'
+			}
+		}
+	}
+	valOr(o,   "prop_1, TOTO, prop_1_B",   "not found")             // will return 'not found'
+	valOr(o,   "prop_1, prop_1_A, prop_1_B",   "not found")         // will return 'val_1_B'
+
+* @param {Object|*} val The value | object
+* @param {string|Array} keysIfInObject If Object provided, the keys to check
+* @param {*} valOtherwise Value to return if the key does not exist or if the value is not a string
+* 
+* @returns {*}
+*/
+function strValOr(val, keysIfInObject = '', valOtherwise = undefined) {
+    let result = valOr(...arguments);
+    if (typeof(result) !== 'string') {
+        return valOtherwise;
+    }
+    return result;
+}
 
 
 

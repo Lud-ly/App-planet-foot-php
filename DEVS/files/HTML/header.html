@@ -12,22 +12,21 @@
 
 
 <div class="headerNotLogged d-flex align-items-center navbar">
+    <a href="index">
+        <img class="logoFoot img-fluid mx-2 d-block my-2 mr-2 ml-4" src="assets/img/logo.png" alt="LOGO" />
+    </a>
     <div class="nameAndTitle d-flex flex-column flex-lg-row justify-content-between align-items-center w-50 mr-auto">
-        <a href="index">
-            <img class="logofoot img-fluid mx-2 d-block my-2 mr-2 ml-4 rounded-pill"
-                src="https://media.giphy.com/media/qBYY1bBX10Y6I/giphy.gif" width="20%" alt="LOGO">
-        </a>
-        <h1 class="nameProject  mb-0">Planet-foot</h1>
+        <h1 class="nameProject h2 mb-0">TonSport</h1>
     </div>
     <div class="iconsHeader d-flex justify-content-around align-items-center mr-2">
         <a href="faq_visible">
-            <img class="btn text-white fas rounded-pill" src="assets/img/aide.png" id="iconeAide" alt="LOGO" />
+            <img class="btn fas" src="assets/img/aide.png" id="iconeAide" alt="LOGO" />
         </a>
-        <i class="btn text-white  fas fa-user-alt" data-toggle="modal" data-target="#modal_user_connect"
+        <i class="btn  fas fa-user-alt" data-toggle="modal" data-target="#modal_user_connect"
             aria-label="connexion"></i>
         <button aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"
             class="navbar-toggler" data-target="#navbarSupportedContent15" data-toggle="collapse"><i
-                class="fas fa-bars text-white  mb-0 h3"></i>
+                class="fas fa-bars  mb-0 h3"></i>
         </button>
     </div>
 </div>
@@ -36,10 +35,7 @@
 <div class="headerNotLogged collapse navbar-collapse pr-3 border-top" id="navbarSupportedContent15">
     <ul class="navbar-nav text-right">
         <li class="nav-item active">
-            <a class="nav-link" data-toggle="modal" href="index#paniers">Les Matchs</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" data-toggle="modal" href="index#club">Les Clubs</a>
+            <a class="nav-link" data-toggle="modal" href="index#paniers">Les paniers</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="index#actualite">Les actualités</a>
@@ -82,44 +78,46 @@
                 <div class="tab-content">
                     <!-- FORMULAIRE DE CONNEXION -->
                     <div id="form_login-pane" class="tab-pane fade show active">
-                        <form class="form" id="formulaireConnexion" method="POST" action="login" onSubmit="">
-                            <div class="row mt-4">
-                                <div class="col-md-10 align-self-strech mx-auto">
-                                    <!-- Input identifiants -->
-                                    <div class="form-group">
-                                        <label for="identifiant" id="labelIdentifiant">Votre identifiant</label>
-                                        <input type="text" class="form-control form-control-md inputMain"
-                                            name="login_username" id="login_username" required=""
-                                            autocomplete="identifiant">
-                                    </div>
-                                    <!-- Input mdp -->
-                                    <div class="form-group">
-                                        <label id="labelPwd" name="labelPwd" for="password">Votre mot de passe</label>
-                                        <input type="password" class="form-control form-control-md inputMain"
-                                            id="passwordConnexion" name="password" required=""
-                                            autocomplete="new-password" value="" onKeyUp="">
-                                        <!-- Montre/cache le mdp -->
-                                        <span toggle="#passwordConnexion" class="field-icon toggle-password"><img
-                                                src="assets\img\eye.png"></span>
-                                        <small id="passwordHelpBlockConnexion" class="form-text text-muted">
-                                        </small>
-                                    </div>
+                        <div class="row mt-4">
+                            <div class="col-md-10 align-self-strech mx-auto">
+                                <!-- Input identifiants -->
+                                <div class="form-group">
+                                    <label for="identifiant" id="labelIdentifiant">Votre identifiant</label>
+                                    <input type="text" class="form-control form-control-md inputMain"
+                                        name="login_username" id="login_username" required=""
+                                        autocomplete="identifiant">
+                                    <p id="sp_error_login_username"></p>
+                                    <span class="error" id="sp_error_connexion"></span>
                                 </div>
-                                <div class="form-group small w-75 mx-auto">
-                                    <a href="login_reinitializepsw" id="motDePasse">Mot de passe oublié?</a>
-                                </div>
-                                <div class="col-md-10 mx-auto text-center">
-                                    <!-- Affichage ReCaptcha + bouton submit  -->
-                                    <div class="col-md-11 mx-auto mt-3">
-                                        <div id="html_element_2"></div>
-                                        <br />
-                                        <input type="submit" value="Connexion" name='envoiFormulaire' class="connexion"
-                                            onclick="signin_envoiFormulaire()">
-                                        <input type="hidden" id="responseRecaptcha2">
-                                    </div>
+                                <!-- Input mdp -->
+                                <div class="form-group">
+                                    <label id="labelPwd" name="labelPwd" for="password">Votre mot de passe</label>
+                                    <input type="password" class="form-control form-control-md inputMain"
+                                        id="login_password" name="login_password" required=""
+                                        autocomplete="new-password" value="" onKeyUp="">
+                                    <!-- Montre/cache le mdp -->
+                                    <span toggle="#login_password" class="field-icon toggle-password"><img
+                                            src="assets\img\eye.png"></span>
+                                    <small id="passwordHelpBlockConnexion" class="form-text text-muted">
+                                    </small>
+                                    <p id="sp_error_login_password"></p>
                                 </div>
                             </div>
-                        </form>
+                            <div class="form-group small w-75 mx-auto">
+                                <a href="login_reinitializepsw" id="motDePasse">Mot de passe oublié?</a>
+                            </div>
+                            <div class="col-md-10 mx-auto text-center">
+                                <!-- Affichage ReCaptcha + bouton submit  -->
+                                <div class="col-md-11 mx-auto mt-3">
+                                    <div id="html_element_2"></div>
+                                    <br />
+                                    <button type="button" name='envoiFormulaire' class="connexion"
+                                        onclick="signin_login()">Connexion</button>
+
+                                    <input type="hidden" id="responseRecaptcha">
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- FORMULAIRE D'INSCRIPTION -->

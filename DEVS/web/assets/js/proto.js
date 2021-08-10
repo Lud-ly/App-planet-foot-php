@@ -168,16 +168,60 @@ $.fn.disappear = function(duration = 400) {
 })( jQuery );
 
 /**
- * Returns the value regardless of the type of element
+ * Returns the value regardless of the type of element.
+ * Or assign a new value if value provided.
  * 
- * @returns {mixed}
+ * @param {*} newValue The value you want to set. Getter if undefined. Default: undefined.
+ * 
+ * @returns {*}
  */
 (function( $ ){
-    $.fn.value = function() {
-        if ( $(this).is(':checkbox') ) {
-            return +$(this).is(':checked');
+    $.fn.value = function (newValue = undefined) {
+        if ( isSetter() ) {
+            // setter : we assign the value and return the element
+            if ( $(this).is(':checkbox') ) {
+                switch (true) {
+                    case [1, '1', true, 'true', 'on'].includes(newValue) :
+                        $(this).prop('checked', true);
+                        break;
+                    case [0, '0', false, 'false', 'off'].includes(newValue) :
+                        $(this).prop('checked', false);
+                        break;
+                    default:
+                        if ($(this).attr('data-value') !== undefined) {
+                            $(this).attr('data-value', newValue);
+                        } else {
+                            $(this).attr('value', newValue);
+                        }
+                }
+            } else {
+                if ( $(this).attr('data-value') !== undefined ) {
+                    $(this).attr('data-value', newValue);
+                } else {
+                    $(this).val(newValue);
+                }
+            }
+            return $(this);
         } else {
-            return ( $(this).attr('data-value') ?? $(this).val() );
+            // getter : we return the value
+            if ( $(this).is(':checkbox') ) {
+                if ($(this).is(':checked')) {
+                    return $(this).attr('data-value') ?? $(this).attr('value') ?? true;
+                } else {
+                    return false;
+                }
+            } else {
+                return ( $(this).attr('data-value') ?? $(this).val() );
+            }
+        }
+        /**
+         * Should we assign a value ?
+         * 
+         * @returns {boolean}
+         */
+        function isSetter ()
+        {
+            return (newValue !== undefined);
         }
     };
 })( jQuery );

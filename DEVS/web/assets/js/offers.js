@@ -40,7 +40,7 @@ function getIngredientDatas() {
         var words = window.location.toString()
         words = words.split("/");
         last_id = words[words.length - 1];
-
+        console.log(aOfOffer_Basket);
         aOfOffer_Basket = result[0]['offer_list_basket'];
         resultat = result[0]['offer_list_ingredients'];
 
@@ -169,7 +169,6 @@ function getIngredientDatas() {
 
     .fail(function(err) {
 
-        console.log('ERROR ? INGREDIENT', err);
 
     })
 

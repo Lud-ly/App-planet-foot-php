@@ -79,7 +79,6 @@ function saveModif() {
     })
     .always(function() {
         hideLoadingModal();
-        console.log('reçu', [arguments]);
     })
     .done(function(data) {
         let sChamp, sMessage;
@@ -91,6 +90,7 @@ function saveModif() {
         } else {
             let sMessage = (
                 (data.error != undefined) &&
+                (data.error != false) &&
                 (typeof(data.error) === 'string') &&
                 (!isEmpty(data.error))
             ) ? data.error : 'Merci de vérifier les champs erronnés';

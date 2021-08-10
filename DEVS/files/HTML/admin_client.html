@@ -1,0 +1,27 @@
+    <link rel="stylesheet" href="assets/css/admin_client.css"> 
+    <script type="text/javascript" src="assets/js/admin_client.js"></script>
+
+
+    <body >
+
+	<div id="page">
+    <div class="card container-fluid">
+        <table  class= "container-fluid" id="table_personnes" border="3">
+        </table>
+        <p>Prénom : <input type="text" name="prenom" id="prenom"></p>
+                <p>Nom : <input type="text" name="nom" id="nom"></p>
+                <p>Téléphone : <input type="text" name="Téléphone" id="Téléphone"></p>
+                <p>Email : <input type="text" name="Email" id="Email"></p>
+                <p>Nombre de Commande : <input type="number" name="Nombre de Commande" id="Nombre"></p>
+                <p>Dernière commande : <input type="date" name="Dernière commande" id="Derniere"></p>
+                <p>
+                <button onClick="ajoutPersonne()"class="btn_blue" id="btn_ajouter">AJOUTER</button>
+                &nbsp;&nbsp;&nbsp;
+                <button onClick="majPersonne()" class="btn_blue" id="btn_modifier">MODIFIER</button>
+                &nbsp;&nbsp;&nbsp;
+                <button onClick="supprimPersonne()" class="btn_blue" id="btn_supprimer">SUPPRIMER</button>
+                </p>
+    </div>
+		</section>
+	</div>
+

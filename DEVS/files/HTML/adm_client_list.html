@@ -1,0 +1,11 @@
+<?php 
+
+    $array_res[0] = array(
+        "count_canceled_purchases" => $oMain->resultat["count_canceled_purchases"],
+        "count_all_purchases" => $oMain->resultat["count_all_purchases"],
+        "adm_client_list" => $oMain->resultat["adm_client_list"],
+    );
+    // json_encode
+    echo json_encode ($array_res); 
+    
+?>

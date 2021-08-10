@@ -1,0 +1,183 @@
+<!-- CECI EST LA PAGE DE CONTACT -->
+
+<link rel="stylesheet" href="assets/css/contact.css">
+
+<script src="assets/js/contact.js"></script>
+
+<script src="assets/js/utils.js"></script>
+
+<section class="container">
+   
+    <!------------------------ POUR VALIDER UNE COMMANDE -------------------------->
+
+    <div class="mt-5">
+        <h2 class="h1-responsive page_title" id="contact_title">Contactez-nous</h2>
+        <select class="custom-select" name="" id="adm_contact_center" onchange="editOrderScheduleClient(this)"></select>
+        <p class="text-center w-responsive mx-auto mb-5 mt-4" id="center_contact_form_message"></p>
+        <div class="row col-lg-12 contact_info_panier">
+            <div class="col-lg-4 mt-2 mb-3 text-center contact_card">
+                <div class="rounded-0">
+                    <div class="d-flex card-header profil">
+                        <div class="col-1 contact-container">1</div>
+                        <div class="col-11 contact_subtitle">
+                            <h5 class="contact-h5 my-0">Pour valider votre commande</h5>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled contact_ul mb-0 p-3">
+                        <li>
+                            <i class="fas fa-calendar-alt fa-2x"></i>
+                            <br>
+                            <br>
+                            <p id="center_validate_schedule"></p>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone fa-2x"></i>
+                            <p id="center_phoneNumber"></p>
+                        </li>
+                        <!-- <li id="contact_mail">
+                            <i class="fas fa-envelope mt-4 fa-2x"></i>
+                            <a href="mailto:Afpa@gmail.fr">Afpa@afpa.fr</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <!------------------------ POUR PAYER UNE COMMANDE -------------------------->
+
+            <div class="col-lg-4 mt-2 mb-3 contact_info_panier contact_card text-center ">
+                <div class="rounded-0 ">
+                    <div class="d-flex card-header profil">
+                        <div class="col-1 contact-container">2</div>
+                        <div class="col-11 contact_subtitle">
+                            <h5 class="contact-h5 mt-0 mb-0">Pour payer votre commande</h5>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled mb-0 contact_ul p-3">
+                        <li>
+                            <i class="fas fa-calendar-alt fa-2x"></i>
+                            <br>
+                            <br>
+                            <p id="withdrawall_date_available"></p>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                            <p id="center_place_topay"></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!------------------------ POUR RETIRER VOTRE COMMANDE -------------------------->
+
+            <div class="col-lg-4 mt-2 mb-3 contact_info_panier contact_card text-center ">
+                <div class="rounded-0">
+                    <div class="d-flex card-header profil">
+                        <div class="col-1 contact-container">3</div>
+                        <div class="col-11 contact_subtitle">
+                            <h5 class="mt-0 mb-0 contact-h5">Pour retirer votre commande</h5>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled contact_ul mb-0 p-3">
+                        <li class="center_withdrawall_schedule">
+                            <i class="fas fa-calendar-alt fa-2x"></i>
+                            <br>
+                            <br>
+                            <p id="center_withdrawall_schedule"></p>
+                        </li>
+                        <li>
+                            <i class="fas fa-cart-plus fa-2x"></i>
+                            <br>
+                            <br>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!------------------------ FORMULAIRE DE CONTACT NOUS CONTACTER -------------------------->
+
+        <div class="row col-lg-12 mb-3 mt-3 contact_info_panier">
+            <div class="col-lg-8 align-self-strech text-center" id="etape1">
+                <form action="" id="contact-form">
+                    <div class="card rounded-0">
+                        <div class="card-header profil">
+                            <h2 class="mb-0 mt-0">Votre Message</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="row col-lg-12">
+                                <div class="col-lg-6 col-sm-12 form-group">
+                                    <label for="nom" id="labelNom">Votre nom:</label>
+                                    <input type="text" class="inputMain form-control form-control-md rounded-2"
+                                        name="nom" id="nom" placeholder="Nom" required>
+                                        <span id="error_nom" class="clError"></span>
+                                </div>
+                                <div class="col-lg-6 col-sm-12 form-group">
+                                    <label for="prenom" id="labelPrenom">Votre prénom:</label>
+                                    <input type="text" class="inputMain form-control form-control-md rounded-2"
+                                        id="prenom" name="prenom" placeholder="Prénom" required>
+                                        <span id="error_prenom" class="clError"></span>
+                                </div>
+                            </div>
+                            <div class="row col-lg-12">
+                                <div class="col-lg-6 form-group">
+                                    <label for="email">Votre email:</label>
+                                    <input type="email" class="inputMain form-control form-control-md rounded-2"
+                                        id="email" name="email" placeholder="E-mail" required>
+                                        <span id="error_email" class="clError"></span>
+                                </div>
+                                <div class="col-lg-6 form-group">
+                                    <label for="telephone">Votre téléphone:</label>
+                                    <input type="tel" class="inputMain form-control form-control-md rounded-2"
+                                        id="telephone" name="telephone" placeholder="Téléphone"required>
+                                        <span id="error_telephone" class="clError"></span>
+                                </div>
+                            </div>
+                            <div class="form-group text-left contact_sujet_message">
+                                <label for="subject" id="subject">Sujet:</label>
+                                <input type="text" class="inputMain form-control form-control-md rounded-2"
+                                    placeholder="Sujet" id="subject" name="subject"required>
+                                    <span id="error_subject" class="clError"></span>
+                            </div>
+                            <div class="form-group mb-0 text-left contact_sujet_message">
+                                <label for="contact_message" id="contact_message">Votre Message:</label>
+                                <textarea type="text" class="inputMain form-control md-textarea"
+                                    id="contact_message_content" name="message" placeholder="Message"required
+                                    class="inputMain form-control md-textarea"></textarea>
+                                     <span id="error_contact_message_content" class="clError"></span>
+                            </div>
+                        </div>
+                        <div class="form-group mb-2">
+                            <button class="btn-green mt-2 " onclick="contact_mail_to()">Envoyer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-4 align-self-strech" id="etape1">
+                <h5>Google Map:</h5>
+                <div class="col-12 contact_iframe">
+                    <iframe id="ifr_urlGoogleMap" frameborder="0" style="border:1;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- MODAL DE CONFIRMATION-->
+<div id="contact_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #7fc241; color: #fff;">
+                <h5 class="modal-title">Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Votre message a bien été envoyé</p>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

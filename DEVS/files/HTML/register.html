@@ -1,0 +1,104 @@
+<!-- extern styles -->
+<link rel="stylesheet" href="assets/css/login.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+
+<!-- scripts used -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Lecn9kUAAAAAIOECAOMHHjhvKeVxgEixJL_CKsk"></script>
+<script src="assets/js/login.js"></script>
+
+<!--formulaire d'inscription -->
+<form class="form" id="formulaire" method="POST">
+    <input type="hidden" id="g-token" name="g-tokn">
+    <!-- Champs civilité -->
+    <h1 class="titleMain">Votre inscription en ligne</h2>
+    <div class="row mt-4">
+        <div class="col-md-3 align-self-strech"></div>
+        <div class="col-md-3 align-self-strech mt-2" id="etape1">
+            <div class="bordure">
+                <div class="card-header">
+                    <h4 class="mb-0 mt-0">Votre profil</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="nom" id="labelNom">Votre nom</label>
+                        <input type="text" class="form-control form-control-md inputMain" name="nom" id="lastname_user"
+                            required="" autocomplete="family-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom" id="labelPrenom">Votre prénom</label>
+                        <input type="text" class="form-control form-control-md inputMain" id="firstname_user" required="" autocomplete="name">
+                    </div>
+                    <div class="form-group mb-0">
+                        <label for="tel_user" id="labelTelephone">Votre numéro de téléphone</label>
+                        <input type="text" class="form-control form-control-md inputMain" id="tel_user" autocomplete="tel-national">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Champs identifiants -->
+        <div class="col-md-3 align-self-strech mt-2" id="etape2">
+            <div class="bordure">
+                <div class="card-header">
+                    <h4 class="mb-0 mt-0">Vos identifiants</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="email_user" id="labelEmail">Votre adresse mail</label>
+                        <input type="text" class="form-control form-control-md inputMain" name="email_user" id="email_user" required="" autocomplete="email">
+                        <div class="invalid-feedback"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="label_pwd" name="label_pwd" for="pwd_user">Choisissez un mot de passe</label>
+                        <a class="picto-item"
+                            aria-label="Le mot de passe doit contenir 8 caractères minimum avec des lettres, des chiffres et des caractères spéciaux.">
+                            <i class="text-muted far fa-question-circle"></i>
+                        </a>
+                        <span class="small ml-2 hide" id="result" name="result"></span>
+                        <input type="password" class="form-control form-control-md inputMain" id="pwd_user"
+                            name="pwd_user" required="" autocomplete="new-password" onKeyUp="login_verifierSaisiePwd()">
+                            <span toggle="#password" class="field-icon toggle-password"><i class="far fa-eye" onclick="login_affichePwd()"></i></span>
+                        <small id="passwordHelpBlock" class="form-text text-muted"></small>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label id="label_pwd2" name="label_pwd2" for="check_pwd2">Confirmez le mot de passe</label>
+                        <input type="password" class="form-control form-control-md inputMain" id="check_pwd2"
+                            name="check_pwd2" required="" autocomplete="new-password" onKeyUp="login_verifierSaisiePwd()">
+                            <span toggle="#password" class="field-icon toggle-password"><i class="far fa-eye" onclick="login_affichePwd()"></i></span>
+                        <div>
+                            <span class="small ml-2 hide" id="statutPwd"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 align-self-strech"></div>
+    </div>
+    <!-- Champs confirmation -->
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+            <div class="form-check marge">
+                <input class="form-check-input" type="checkbox" id="checkLecture" name="checkLecture">
+                <label class="form-check-label" for="checkLecture" id="labelCheck">J'ai lu et accepte les <a href="cgv_visible" id="lienCGV">conditions générales d'utilisation </a>du site</label>
+            </div>
+
+            <div class="marge">   
+                <a type="button" name='envoiFormulaire' class="connexion" onclick="login_verifierFormulaire()">Lancer mon inscription</a>
+            </div> 
+        </div>
+    </div>
+</form>
+
+
+<!-- MODALE -->
+<div class="modal fade" id="maModale" name="maModale" tabindex="-1"></div>
+
+
+<!-- scripts recaptcha google -->
+<script>
+grecaptcha.ready(function() {
+    grecaptcha.execute('6Lecn9kUAAAAAIOECAOMHHjhvKeVxgEixJL_CKsk', {action: 'homepage'}).then(function(token) {
+        var recaptchaResponse = document.getElementById('g-token');
+        recaptchaResponse.value = token;
+    });
+});
+</script>

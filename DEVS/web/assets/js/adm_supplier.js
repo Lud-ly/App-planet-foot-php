@@ -249,13 +249,14 @@ function modifySupplier(iIndiceEditionEncours) {
             if (result["isValidEdit"]) {
                 hideLoadingModal();
                 // $("#editModal").attr("data-dismiss", "modal");
-                $("#editModal").hide();
+                                $("#editModal").hide();
                 $(".modal-backdrop").hide();
                 cleanFormEdit();
                 toastr.success('Modification du fournisseur réussi !', 'Succès');
                 tables.clear();
                 tables.destroy();
                 loadSupplier();
+                alert("done ok");
             }
             else {
                 // Je boucle sur les champs et teste si c'est vide ou non-conforme et j'affiche sous les erreurs dans les span sous les input

@@ -1,0 +1,43 @@
+<?php
+    if ($oMain->resultat["response_upload"] == "0")
+    {
+?>
+
+<script type="text/javascript">
+    top.frames.document.getElementById("new_fichier_actualite_edit").value= "<?= $oMain->resultat['nomImage_edit'] ?>";
+    top.frames.document.getElementById("div_preview_img_edit").innerHTML= "<img class=\"photo\" src=\"<?= $oMain->resultat['cheminImage_edit'] ?>\" alt=\"Image de l'actualité\">";
+</script>
+
+<?php
+    }
+    else if ($oMain->resultat["response_upload"] == "1")
+    {
+?>
+    
+<script type="text/javascript">
+    top.frames.document.getElementById("sp_error_upload_edit").innerHTML= "Erreur système lors de l'enregistrement.";
+</script>
+    
+<?php
+    }
+    else if ($oMain->resultat["response_upload"] == "2")
+    {
+?>
+
+<script type="text/javascript">
+    top.frames.document.getElementById("sp_error_upload_edit").innerHTML= "Erreur sur l'extension du fichier.requis : jpeg', '.jpg', '.png', '.gif'";
+</script>
+
+<?php
+    }
+    else if ($oMain->resultat["response_upload"] == "3")
+    {
+?>
+
+<script type="text/javascript">
+    top.frames.document.getElementById("sp_error_upload_edit").innerHTML= "Fichier image trop lourd (max 512 Ko)."
+</script>
+<?php
+    }
+?>
+    

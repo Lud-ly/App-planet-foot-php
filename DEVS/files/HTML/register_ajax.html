@@ -1,0 +1,8 @@
+<?php 
+    $array_res[0] = array(
+        "id_user" => $oMain->resultat["id_user_created"],
+        "token_user" => $oMain->resultat["return_token"][0]["token_user"],
+        "google_response" => $oMain->resultat["google_response"]
+    );
+    echo json_encode ($array_res); 
+?>

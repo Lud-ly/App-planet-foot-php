@@ -7,7 +7,7 @@
      */
     function redirectToHomePageIfNoUserConnected() {
 		global $GLOBALS_INI;
-        if (!isset($_SESSION['id_user']) || isEmpty($_SESSION['id_user'])) {
+        if (!isset($_SESSION['id_external_user']) || isEmpty($_SESSION['id_external_user'])) {
             require ($GLOBALS_INI['PATH_HOME'] .  $GLOBALS_INI['PATH_FILES'] . Configuration::$homePage);
             die;
         }
