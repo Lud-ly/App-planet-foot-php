@@ -16,7 +16,8 @@ require_once  "initialize.php";
  * @version v1.0
  */
 
-Class Index_service extends Initialize	{
+class Index_service extends Initialize
+{
 
   /**
    * public $resultat is used to store all datas needed for HTML Templates
@@ -29,7 +30,8 @@ Class Index_service extends Initialize	{
    *
    * execute main function
    */
-  public function __construct() {
+  public function __construct()
+  {
     // Call Parent Constructor
     parent::__construct();
 
@@ -37,7 +39,7 @@ Class Index_service extends Initialize	{
     $this->resultat = [];
 
     // execute main function
-    
+
   }
 
   /**
@@ -45,44 +47,38 @@ Class Index_service extends Initialize	{
    * Destroy service
    *
    */
-  public function __destruct() {
+  public function __destruct()
+  {
     // Call Parent destructor
     parent::__destruct();
   }
-
-    /**
-     * READ BASKET TABLE
-     * 
-     * GET BASKET LIST FROM DATABASE
-     */
-    public function index_list_basket() {
-        $spathSQL= $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "index_list_basket.sql";
-        $this->resultat["index_list_basket"]= $this->oBdd->getSelectDatas($spathSQL, array());
-    }
-
-      /**
-     * READ ARTICLES NEWS
-     * 
-     * GET NEWS ARTICLES  LIST FROM DATABASE
-     */
-    public function index_list_articles_news() {
-      $spathSQL= $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "index_list_articles_news.sql";
-      $this->resultat["index_list_articles_news"]= $this->oBdd->getSelectDatas($spathSQL, array());
-  }
-      /**
-     * READ STEP & SECTION DEV
-     * 
-     * GET "QUI SOMMES NOUS", SECTION DEV AND STEP LIST FROM DATABASE
-     */
-    public function index_list_step_news() {
-      $spathSQL= $this->GLOBALS_INI["PATH_HOME"] . $this->GLOBALS_INI["PATH_MODEL"] . "index_list_step_news.sql";
-      $this->resultat["index_list_step_news"]= $this->oBdd->getSelectDatas($spathSQL, array());
-  }
-
-  
-
 }
-  
 
-?>
 
+// $curl = curl_init();
+
+// curl_setopt_array($curl, [
+// 	CURLOPT_URL => "https://free-football-soccer-videos.p.rapidapi.com/",
+// 	CURLOPT_RETURNTRANSFER => true,
+// 	CURLOPT_FOLLOWLOCATION => true,
+// 	CURLOPT_ENCODING => "",
+// 	CURLOPT_MAXREDIRS => 10,
+// 	CURLOPT_TIMEOUT => 30,
+// 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+// 	CURLOPT_CUSTOMREQUEST => "GET",
+// 	CURLOPT_HTTPHEADER => [
+// 		"x-rapidapi-host: free-football-soccer-videos.p.rapidapi.com",
+// 		"x-rapidapi-key: 39ac6c85ebmsh6b6e308a4061cbfp1b0061jsn5e48f2a2f866"
+// 	],
+// ]);
+
+// $response = curl_exec($curl);
+// $err = curl_error($curl);
+
+// curl_close($curl);
+
+// if ($err) {
+// 	echo "cURL Error #:" . $err;
+// } else {
+// 	echo $response;
+// }

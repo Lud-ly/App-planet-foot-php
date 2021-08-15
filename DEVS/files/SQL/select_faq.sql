@@ -1,1 +1,0 @@
-select id_faq, id_center, faq_question, faq_answer, faq_order, faq_status from faq order by faq_order

@@ -1,3 +1,0 @@
-◘ >> Avant mise en production :
-  - chercher 'basket_end_date' dans l'IDE dans le dossier du projet et vérifier si certaines occurences ne sont pas à remplacer par 'basket_end_validation_date'.
-  Car 'basket_end_validation_date' a été ajouté plus tardivement.

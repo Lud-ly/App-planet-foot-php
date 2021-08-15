@@ -7,7 +7,6 @@
 <!-- scripts used -->
 <!------------------>
 <script src="assets/js/header.js"></script>
-<script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
 
 
 
@@ -35,7 +34,7 @@
 <div class="headerNotLogged collapse navbar-collapse pr-3 border-top" id="navbarSupportedContent15">
     <ul class="navbar-nav text-right">
         <li class="nav-item active">
-            <a class="nav-link" data-toggle="modal" href="index#paniers">Les paniers</a>
+            <a class="nav-link" data-toggle="modal" href="index#paniers">Les Clubs</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="index#actualite">Les actualités</a>
@@ -217,28 +216,5 @@
     </div>
 </div>
 
-<!------------------------------>
-<!-- scripts recaptcha google -->
-<!------------------------------>
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-
-<script type="text/javascript">
-    var onloadCallback = function () {
-        grecaptcha.render('html_element', {
-            'sitekey': '<?php echo $GLOBALS_INI["RECAPTCHA_CLE"]?>',
-            'callback': verifyCallback,
-            'theme': 'light'
-        });
-        grecaptcha.render('html_element_2', {
-            'sitekey': '<?php echo $GLOBALS_INI["RECAPTCHA_CLE"]?>',
-            'callback': verifyCallback,
-            'theme': 'light'
-        });
-    };
-
-
-    var verifyCallback = function (response) {
-        console.log(response);
-    };
 
 </script>
