@@ -9,15 +9,16 @@ require_once "index_service.php";
  *
  * require_once "index_service.php";
  *
- * @package Afpanier v3 Project
- * @subpackage Index
- * @author @AfpaLabTeam - JiJou
- * @copyright  1920-2080 Afpa Lab Team - CDA 20303
+ * @package Planet-foot Project
+ * @subpackage index_service
+ * @author @LudoLabTeam - Ludo
+ * @copyright  1920-2080 
  * @version v1.0
  */
 
-Class Index	{
-	
+class Index
+{
+
     /**
      * public $resultat is used to store all datas needed for HTML Templates
      * @var array
@@ -29,7 +30,8 @@ Class Index	{
      *
      * execute main function
      */
-    public function __construct() {
+    public function __construct()
+    {
         // init variables resultat
         $this->resultat = [];
 
@@ -42,7 +44,8 @@ Class Index	{
      * Destroy service
      *
      */
-    public function __destruct() {
+    public function __destruct()
+    {
         // destroy objet_service
         unset($objet_service);
     }
@@ -50,16 +53,13 @@ Class Index	{
     /**
      * Get interface to gestion of accueil
      */
-    function main() {
-		$objet_service = new Index_service();
-		// Ici je fais mon appel $objet_service->ma_methode_qui_est_dans_le_service
-		
-		// Je passe mes parametres pour y avoir acces dans mes pages HTML
-		$this->resultat = $objet_service->resultat;
-		$this->VARS_HTML = $objet_service->VARS_HTML;
+    function main()
+    {
+        $objet_service = new Index_service();
+        // Ici je fais mon appel $objet_service->ma_methode_qui_est_dans_le_service
+
+        // Je passe mes parametres pour y avoir acces dans mes pages HTML
+        $this->resultat = $objet_service->resultat;
+        $this->VARS_HTML = $objet_service->VARS_HTML;
     }
-	
 }
-
-?>
-

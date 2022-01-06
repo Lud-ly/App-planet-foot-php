@@ -1,0 +1,8 @@
+.headfilter {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.headfilter img {
+  width: 10%;
+}

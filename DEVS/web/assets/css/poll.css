@@ -1,0 +1,51 @@
+section {
+  min-height: 20em;
+  margin-top: 2rem;
+}
+
+.custom-select {
+  width: fit-content;
+  position: relative;
+  border: 2px solid blue !important;
+  font-size: x-large;
+}
+
+#answers {
+  align-items: center;
+}
+
+.contAnswers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  flex-direction: column;
+  box-shadow: rgb(0 0 0 / 17%) 0px -23px 25px 0px inset,
+    rgb(0 0 0 / 15%) 0px -36px 30px 0px inset,
+    rgb(0 0 0 / 10%) 0px -79px 40px 0px inset, rgb(0 0 0 / 6%) 0px 2px 1px,
+    rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px,
+    rgb(0 0 0 / 9%) 0px 16px 8px, rgb(0 0 0 / 9%) 0px 32px 16px;
+  background: rgba(255, 255, 255, 0.658);
+  margin: 15px;
+  padding: 10px;
+}
+.error {
+  color: red;
+}
+.contAnswers:hover {
+  background: rgba(53, 161, 49, 0.658);
+}
+
+.contAnswers2 {
+  background: rgba(63, 199, 36, 0.658) !important;
+}
+
+.button {
+  height: 50px;
+  background: rgba(255, 255, 255, 0.658);
+  border: 2px solid #612ac7;
+  margin: 15px;
+  padding: 10px;
+}

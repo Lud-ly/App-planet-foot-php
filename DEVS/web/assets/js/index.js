@@ -1,7 +1,19 @@
-var foot;
+var aOfFoot = [];
 var indice;
+var makein;
+var date;
+var image;
+var comp;
+var video;
+var videoHtml;
+var title;
 
-// $("#result").on("click", function FOOTAPI() {
+$(function () {
+    scrollTo($("#viewScroll"));
+    $("#viewCards").empty();
+});
+
+
 const settings = {
     "async": true,
     "crossDomain": true,
@@ -12,47 +24,48 @@ const settings = {
         "x-rapidapi-host": "free-football-soccer-videos1.p.rapidapi.com"
     }
 };
-
 $.ajax(settings).done(function (response) {
     console.log(response);
-    console.log("response", response);
-    foot = response;
-    var resultHtml = $("<div>");
-    for (i = 0; i < foot.length; i++) {
+    aOfFoot = response;
+    var resultHtml = $("<div class='cardGrid'>");
+    for (i = 0; i < aOfFoot.length; i++) {
+
         indice = i;
-        var makein = foot[i]["date"] == null ? "No information available" : foot[i]["date"];
-        var date = makein.replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2-$1").slice(0, 10);
-        var image = foot[i]["thumbnail"] == null ? "Image/no-image.png" : foot[i]["thumbnail"];
-        var comp = foot[i]["competition"]["name"] == null ? "No information available" : foot[i]["competition"]["name"];
-        // var video = foot[i]["embed"] == null ? "Video/no-video.mp4" : foot[i]["embed"];
-        var title = foot[i]["title"] == null ? "Image/no-image.png" : foot[i]["title"];
+        makein = aOfFoot[i]["date"] == null ? "No information available" : aOfFoot[i]["date"];
+        date = makein.replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2-$1").slice(0, 10);
+        image = aOfFoot[i]["thumbnail"] == null ? "Image/no-image.png" : aOfFoot[i]["thumbnail"];
+        comp = aOfFoot[i]["competition"]["name"] == null ? "No information available" : aOfFoot[i]["competition"]["name"];
+        var sideTeam1 = aOfFoot[i]["side1"]["name"] == null ? "pas d'équipe" : aOfFoot[i]["side1"]["name"];
+        var sideTeam2 = aOfFoot[i]["side2"]["name"] == null ? "pas d'équipe" : aOfFoot[i]["side2"]["name"];
 
+        title = aOfFoot[i]["title"] == null ? "Image/no-image.png" : aOfFoot[i]["title"];
 
-        resultHtml.append("<div class='card mb-4 mr-3' resourceId=\"" + foot[i]["competition"]["id"] + "\">"
+        resultHtml.append('<div class="card" id="foot" style="width: 22rem;background:#23272b" resourceId=' + aOfFoot[i]["competition"]["id"] + '">'
+            + '<p class="card-title text-center">' + comp + ' | ' + date + '</p>'
+            //+ '<img class="card-img-top" src=' + image + ' alt="Card image cap">'
             + '<div class="card-body">'
-            + '<h5 class="card-title">' + title + '</h5>'
-            + '<p class="card-title">' + comp + '</p>'
-            + date
-            + "<img  class='card-img-top' alt='Card image cap' src=\"" + image + "\" /></div>"
-            + '<button onclick="Play(' + indice + ')">video</button>'
-            + '<button id="close" class="hide" onclick="Hide()">fermer</button>'
-            + '<div class="hide" id="video">' + videoHtml + '</div>'
-            + ' </div>'
-            + "</div>");
-        resultHtml.append("</div>");
-        $("#foot").html(resultHtml);
-    }
-});
-// });
+            + '<div id="teams"><h6>' + sideTeam1 + '</h6><span class="versus"> vs </span><h6>' + sideTeam2 + '</h6></div>'
+            + '<p class="card-text"></p>'
+            + '<p class="text-center"><button class="btn btn-dark" onclick="Play(' + indice + ')"><a href="#ex1" rel="modal:open"><img class="card-img-top" src=' + image + ' alt="Card image cap"></a></button></p>'
+            + '</div>'
 
-var videoHtml;
+        );
+    }
+    $("#viewCards").hide();
+    $("#viewCards").html(resultHtml);
+});
+function showCard() {
+    $("#viewCards").toggle();
+}
+
 function Hide() {
     $('#video').html("");
     $("#close").addClass('hide');
+    $("#video").addClass('hide');
 }
 function Play(indice) {
     console.log(indice);
-    videoHtml = +'<div>' + foot[indice]['embed'] + '</div>'
+    videoHtml = +'<div class="modal">' + aOfFoot[indice]['embed'] + '</div>'
     $("#video").removeClass('hide');
     $("#video").addClass('show');
     $("#video").html(videoHtml);
@@ -60,59 +73,12 @@ function Play(indice) {
     $("#close").addClass('show');
 };
 
-
-
-
-
-
-
-
-
-
-
-
-const settings2 = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://football98.p.rapidapi.com/bundesliga/squads",
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-key": "39ac6c85ebmsh6b6e308a4061cbfp1b0061jsn5e48f2a2f866",
-        "x-rapidapi-host": "football98.p.rapidapi.com"
+function scrollTo(target) {
+    if (target.length) {
+        $("html, body").stop().animate({ scrollTop: target.offset().top }, 1500);
     }
-};
-
-$.ajax(settings2).done(function (response) {
-    console.log("squad", response);
-});
-
-const setting4 = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://football98.p.rapidapi.com/ligue1/squadname/lens",
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-key": "39ac6c85ebmsh6b6e308a4061cbfp1b0061jsn5e48f2a2f866",
-        "x-rapidapi-host": "football98.p.rapidapi.com"
-    }
-};
-
-$.ajax(setting4).done(function (response) {
-    console.log("equipe", response);
-});
+}
 
 
-const settings3 = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://football98.p.rapidapi.com/liga/scorers",
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-key": "39ac6c85ebmsh6b6e308a4061cbfp1b0061jsn5e48f2a2f866",
-        "x-rapidapi-host": "football98.p.rapidapi.com"
-    }
-};
 
-$.ajax(settings3).done(function (response) {
-    console.log("scorers", response);
-});
+

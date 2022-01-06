@@ -3,37 +3,63 @@
 
 <!-- Script -->
 <script src="assets/js/index.js"></script>
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
 
-<style>
-    #foot {
-        margin-top: 5em;
-    }
-
-    .card {
-        width: 350px;
-        display: inline-block;
-    }
-
-    .card-title {
-        font-weight: bold;
-    }
-
-    .show {
-        display: block;
-    }
-
-    .hide {
-        display: none;
-    }
-</style>
 <section>
 
     <div class="container">
 
-        <div id="foot"></div>
-    </div>
-    </div>
+        <!-- Modal HTML embedded directly into document -->
+        <div id="ex1" class="modal">
+            <div id="video"></div>
+            <a href="#" rel="modal:close">Close</a>
+        </div>
 
+        <div class="container control" id="home-control">
+            <a class="wBtn" onclick="fl1()">
+                <svg width="277" height="62" onclick="showCard()">
+                    <defs>
+                        <linearGradient id="grad1">
+                            <stop offset="0%" stop-color="#121212" />
+                            <stop offset="100%" stop-color="lightgreen" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="260" height="50"></rect>
+                </svg>
+                <span>Cards</span>
+            </a>
+            <a class="wBtn" onclick="fl1()">
+                <svg width="277" height="62" onclick="showCard()">
+                    <defs>
+                        <linearGradient id="grad1">
+                            <stop offset="0%" stop-color="#121212" />
+                            <stop offset="100%" stop-color="lightgreen" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="260" height="50"></rect>
+                </svg>
+                <span>Cards</span>
+            </a>
+            <a class="wBtn" onclick="fl1()">
+                <svg width="277" height="62" onclick="showCard()">
+                    <defs>
+                        <linearGradient id="grad1">
+                            <stop offset="0%" stop-color="#121212" />
+                            <stop offset="100%" stop-color="lightgreen" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="260" height="50"></rect>
+                </svg>
+                <span>Cards</span>
+            </a>
+
+        </div>
+
+        <div id="viewCards"></div>
+        <div id="viewScroll"></div>
+    </div>
 
 </section>

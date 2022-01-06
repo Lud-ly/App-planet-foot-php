@@ -1,0 +1,85 @@
+<script src="assets/js/signup.js"></script>
+<link rel="stylesheet" href="assets/css/signup.css">
+<script type="text/javascript" src="assets/js/utils.js"></script>
+
+
+<h1 class="text-center mt-3 mb-3">S'INSCRIRE</h1>
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <!-- ATTENTION au <form> : le target vers l'iframe target="formUploadImage", ainsi que  enctype="multipart/form-data" SONT INDISPENSABLES -->
+            <form method="post" action="route.php" target="formUploadImage" name="uploadForm" id="uploadForm"
+                enctype="multipart/form-data" style="border: 4px solid white;">
+                <input type="hidden" name="page" id="page" value="signup_upload">
+                <input type="hidden" name="bJSON" id="bJSON" value="1">
+                <div>
+                    <span>Sélectionnez une photo ou un document stocké sur votre ordinateur : </span>
+                    <!-- Nous avons ici notre label et l'input afférent -->
+                    <label for="nom_fichier" id="label_file" class="label_file button_main">Charger une
+                        image Avatar</label>
+                    <input id="nom_fichier" name="nom_fichier" type="file" style="display: none;" onchange="doUpload()">
+                    <span class="error" id="sp_error_upload"></span>
+                    <div id="div_preview_img"></div>
+                </div>
+            </form>
+            <!-- La FORM du dessus est SUBMITTED DANS L'IFRAME NON VISIBLE CI-DESSOUS -->
+            <iframe src="about:blank" id="formUploadImage" name="formUploadImage"></iframe>
+
+        </div>
+        <div class="col-md-6  mt-5">
+            <input type="text" class="form-control" name="nom_fichier_fournisseur" id="nom_fichier_fournisseur"
+                autocomplete="off" required>
+            <span class="error"></span>
+            <p class="login-lost">Already Registered? <a href="login">Login Here</a></p>
+
+
+            <div class="form-group">
+                <label for="addName">Nom</label>
+                <input type="text" class="form-control" name="addName" id="addName" required>
+                <span class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="addEmail">Email</label>
+                <input type="email" class="form-control" name="addEmail" id="addEmail" required>
+                <span class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="user_password">Mot de Passe</label>
+                <input type="text" class="form-control" name="user_password" id="user_password" required>
+                <span class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="addPhone">Téléphone</label>
+                <input type="tel" pattern="^(0|((\\+|00)33))(4|6|7)\\d{8}$" class="form-control" name="addPhone"
+                    id="addPhone" required>
+                <span class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="addAddress">Adresse</label>
+                <textarea class="form-control" name="addAddress" id="addAddress" required></textarea>
+                <span class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="addCity">Ville</label>
+                <input type="text" class="form-control" name="addCity" id="addCity" required>
+                <span class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="addZip">Code Postal</label>
+                <input type="text" class="form-control" name="addZip" id="addZip" required>
+                <span class="error"></span>
+            </div>
+            <p class="text-center">
+                <input type="button" class="btn btn-success" onclick="add_user_server()" value="Valider">
+                <input type="button" class="btn btn-dark" id="cleansheetForm" onclick="clearForm()" value="Annuler">
+
+            </p>
+        </div>
+    </div>
+</div>

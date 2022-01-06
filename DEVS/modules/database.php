@@ -14,10 +14,10 @@
  *
  * Execute insert / update / delete method
  *
- * @package Afpanier v3 Project
- * @subpackage Database
- * @author @AfpaLabTeam - JiJou
- * @copyright  1920-2080 Afpa Lab Team - CDA 20303
+ * @package Planet-foot Project
+ * @subpackage index_service
+ * @author @LudoLabTeam - Ludo
+ * @copyright  1920-2080 
  * @version v1.0
  */
 
@@ -160,5 +160,3 @@ Class Database {
 	}
 
 }
-	
-?>

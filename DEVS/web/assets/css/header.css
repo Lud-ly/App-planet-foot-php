@@ -1,9 +1,7 @@
 /**************************** HEADER ****************************/
-/* .headerNotLogged 
-{
-    color: white;
-    background-color: #1E1E1E;
-} */
+#navbarText {
+  justify-content: center;
+}
 
 .header_nav_account {
   display: flex;
@@ -19,6 +17,8 @@
 
 .nameProject {
   font-size: 40px;
+  color: #121212 !important;
+  text-transform: uppercase;
   width: inherit;
   padding: 7px;
   border-radius: 5px;
@@ -130,8 +130,18 @@
 
 .iconsHeader {
   width: 150px;
+  text-transform: uppercase;
+}
+.navbar-toggler {
+  color: #000 !important;
+  font-size: 20px;
+}
+.logoFoot {
+  width: 95px;
+  transform: rotate(10deg);
 }
 
-.logoFoot {
-  width: 68px;
+.logoFoot:hover {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }

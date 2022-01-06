@@ -1,0 +1,210 @@
+ul,
+ol {
+  list-style: none;
+}
+
+.bestLeague {
+  margin: 0 auto;
+}
+.fullHoverImg {
+  display: flex;
+  justify-content: center;
+}
+.fullHoverImg img {
+  width: 250px;
+  height: 100px;
+}
+/* MAIN- MENU */
+
+#main-menu ul,
+#main-menu2 ul {
+  display: flex;
+  justify-content: center;
+}
+#main-menu ul li,
+#main-menu2 ul li {
+  background: #fff;
+  float: left;
+  width: 140px;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+.hide {
+  display: none;
+}
+
+#main-menu ul li,
+#main-menu2 ul li :hover + .hide {
+  display: block;
+}
+.club {
+  text-transform: uppercase;
+}
+.bw {
+  position: absolute;
+  left: 0px;
+  width: 140px;
+  height: 500px;
+  cursor: pointer;
+  background: url("../img/bw-image.jpg") no-repeat;
+  opacity: 0.9;
+  border-radius: 5px;
+}
+.color {
+  position: absolute;
+  left: 140px;
+  width: 140px;
+  height: 500px;
+  cursor: pointer;
+  background: url("../img/color-image.jpg") no-repeat;
+  border-radius: 5px;
+}
+.bw2 {
+  position: absolute;
+  left: 0px;
+  width: 140px;
+  height: 500px;
+  cursor: pointer;
+  background: url("../img/2bw-image.png") no-repeat;
+  opacity: 0.9;
+  border-radius: 5px;
+}
+.color2 {
+  position: absolute;
+  left: 140px;
+  width: 140px;
+  height: 500px;
+  cursor: pointer;
+  background: url("../img/2color-image.png") no-repeat;
+  border-radius: 5px;
+}
+#part2 div {
+  background-position: -140px 0px;
+}
+#part3 div {
+  background-position: -280px 0px;
+}
+#part4 div {
+  background-position: -420px 0px;
+}
+#part5 div {
+  background-position: -560px 0px;
+}
+.logo img {
+  width: 60%;
+  margin: 0 auto;
+}
+.description {
+  position: absolute;
+  left: 140px;
+  width: 240px;
+  height: 460px;
+  margin-left: 20px;
+  padding: 10px 0px;
+  text-align: center;
+}
+.description h4,
+.description p {
+  font-family: serif, "Limelight", sans-serif;
+  text-align: center;
+  margin: 0;
+  color: #333;
+  text-align: center;
+}
+
+/* BUTTONS-MENU*/
+#buttons-menu,
+#buttons-menu2 {
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /*padding: 170px 0 50px 0;*/
+}
+#buttons-menu ul,
+#buttons-menu2 ul {
+  float: left;
+  position: relative;
+  left: 50%;
+  text-align: center;
+}
+.button,
+.button2 {
+  float: left;
+  width: 150px;
+  margin-left: 30px;
+  padding: 10px 0;
+  position: relative;
+  right: 50%;
+  text-shadow: 1px 1px 1px #000;
+  font-family: serif, "Lobster", sans-serif;
+  text-align: center;
+  color: #000;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);
+  background: #fff;
+  border: 2px solid rgb(66, 71, 71);
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+.hovered {
+  background: orange;
+  border: 2px solid #000;
+}
+.button1 {
+  width: 150px;
+  text-decoration: none;
+  margin-left: 30px;
+  padding: 10px 0;
+  text-shadow: 1px 1px 1px #000;
+  font-family: serif, "Lobster", sans-serif;
+  text-align: center;
+  color: #000;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);
+  background: #fff;
+  border: 2px solid orange;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.container1 input[type="text"] {
+  padding: 5px 0px;
+  margin: 5px 5px 5px 0px;
+}
+
+.add_form_field {
+  background-color: #1c97f3;
+  border: none;
+  color: white;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 1px solid #186dad;
+}
+
+input {
+  border: 1px solid #1c97f3;
+  width: 260px;
+  height: 40px;
+  margin-bottom: 14px;
+}
+
+.delete {
+  background-color: #fd1200;
+  border: none;
+  color: white !important;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

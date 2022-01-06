@@ -9,10 +9,10 @@ require_once  "initialize.php";
  *
  * require_once "initialize.php";
  *
- * @package Afpanier v3 Project
+ * @package Planet-foot Project
  * @subpackage index_service
- * @author @AfpaLabTeam - JiJou
- * @copyright  1920-2080 Afpa Lab Team - CDA 20303
+ * @author @LudoLabTeam - Ludo
+ * @copyright  1920-2080 
  * @version v1.0
  */
 

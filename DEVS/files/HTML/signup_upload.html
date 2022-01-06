@@ -1,0 +1,39 @@
+<?php
+    if ($oMain->resultat["response_upload"] == "0")
+    {
+?>
+<script type="text/javascript">
+    top.frames.document.getElementById("nom_fichier_fournisseur").value = "<?= $oMain->resultat['nom_fichier'] ?>";
+    top.frames.document.getElementById("div_preview_img").innerHTML = "<img class=\"upload_img\" src=\"/<?= $oMain->resultat['path_nom_fichier'] ?>\" alt=\"Image\">";
+   // top.frames.document.getElementById("edit_nom_fichier_fournisseur").value = "<?= $oMain->resultat['nom_fichier'] ?>";
+   // top.frames.document.getElementById("edit_div_preview_img").innerHTML = "<img class=\"supplier_img\" src=\"/<?= $oMain->resultat['path_nom_fichier'] ?>\" alt=\"Image du fournisseur\">";
+</script>
+<?php
+    }
+    else if ($oMain->resultat["response_upload"] == "1")
+    {
+?>
+
+<script
+    type="text/javascript">top.frames.document.getElementById("sp_error_upload").innerHTML = "Erreur système lors du téléversement."</script>
+
+<?php
+    }
+    else if ($oMain->resultat["response_upload"] == "2")
+    {
+?>
+
+<script
+    type="text/javascript">top.frames.document.getElementById("sp_error_upload").innerHTML = "Erreur sur l'extension de l'image, requis : jpeg', '.jpg', '.png', '.gif'"</script>
+
+<?php
+    }
+    else if ($oMain->resultat["response_upload"] == "3")
+    {
+?>
+
+<script
+    type="text/javascript">top.frames.document.getElementById("sp_error_upload").innerHTML = "Le fichier image est trop lourd (max 512 Ko)."</script>
+<?php
+    }
+?>

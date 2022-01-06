@@ -7,10 +7,10 @@
  * List of classes needed for this class
  * no required class
  *
- * @package Afpanier v3 Project
- * @subpackage Security
- * @author @AfpaLabTeam - JiJou
- * @copyright  1920-2080 Afpa Lab Team - CDA 20303
+ * @package Planet-foot Project
+ * @subpackage index_service
+ * @author @LudoLabTeam - Ludo
+ * @copyright  1920-2080 
  * @version v1.0
  */
 
@@ -52,4 +52,3 @@ class Security {
 	}
 //End of class	
 }
-?>

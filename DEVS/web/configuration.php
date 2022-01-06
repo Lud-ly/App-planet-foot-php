@@ -52,5 +52,3 @@ Class Configuration	{
 	}
 
 }
-
-?>

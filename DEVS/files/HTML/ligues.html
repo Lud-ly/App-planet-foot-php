@@ -1,0 +1,88 @@
+<link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css" />
+<link rel="stylesheet" href="assets/css/datatables_commun.css">
+<link rel="stylesheet" href="assets/css/ligues.css">
+
+<!-- Script -->
+<script src="assets/js/ligues.js"></script>
+
+<script type="text/javascript" src="assets/DataTables/datatables.min.js"></script>
+
+<div class="headfilter mt-5">
+    <img src="assets/img/Ligue_1_Conforama.png">
+    <img src="assets/img/LaLiga.png">
+    <img src="assets/img/Logo_Bundesliga.png">
+    <img src="assets/img/SerieALogo.png">
+    <img src="assets/img/Premier_League.png">
+</div>
+
+<div class="container-fluid" style="display: flex;
+flex-wrap: wrap;">
+    <a class="wBtn" onclick="fl1()">
+        <svg width="277" height="62">
+            <defs>
+                <linearGradient id="grad1">
+                    <stop offset="0%" stop-color="#FF8282" />
+                    <stop offset="100%" stop-color="#E178ED" />
+                </linearGradient>
+            </defs>
+            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="260" height="50"></rect>
+        </svg>
+        <span>Ligue 1</span>
+    </a>
+    <a class="wBtn" onclick="pd()">
+        <svg width="277" height="62">
+            <defs>
+                <linearGradient id="grad1">
+                    <stop offset="0%" stop-color="#FF8282" />
+                    <stop offset="100%" stop-color="#E178ED" />
+                </linearGradient>
+            </defs>
+            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="260" height="50"></rect>
+        </svg>
+        <span>Liga</span>
+    </a>
+    <a class="wBtn" onclick="bl1()">
+        <svg width="277" height="62">
+            <defs>
+                <linearGradient id="grad1">
+                    <stop offset="0%" stop-color="#FF8282" />
+                    <stop offset="100%" stop-color="#E178ED" />
+                </linearGradient>
+            </defs>
+            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="260" height="50"></rect>
+        </svg>
+        <span>Bundesliga</span>
+    </a>
+    <a class="wBtn" onclick="sa()">
+        <svg width="277" height="62">
+            <defs>
+                <linearGradient id="grad1">
+                    <stop offset="0%" stop-color="#FF8282" />
+                    <stop offset="100%" stop-color="#E178ED" />
+                </linearGradient>
+            </defs>
+            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="260" height="50"></rect>
+        </svg>
+        <span>Serie A</span>
+    </a>
+    <a class="wBtn" onclick="pl()">
+        <svg width="277" height="62">
+            <defs>
+                <linearGradient id="grad1">
+                    <stop offset="0%" stop-color="#FF8282" />
+                    <stop offset="100%" stop-color="#E178ED" />
+                </linearGradient>
+            </defs>
+            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="260" height="50"></rect>
+        </svg>
+        <span>Premiere League</span>
+    </a>
+</div>
+
+<!-- Start Datatables -->
+<div class="table-wrapper">
+    <div class="table-title">
+
+    </div>
+    <table class="table table-striped table-hover table_commandes dt-responsive w-100 nowrap" id="table_teams"></table>
+</div>

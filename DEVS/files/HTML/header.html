@@ -1,220 +1,65 @@
 <!----------------->
 <!-- styles used -->
 <!----------------->
-<link rel="stylesheet" href="assets/css/header.css">
 
 <!------------------>
 <!-- scripts used -->
 <!------------------>
 <script src="assets/js/header.js"></script>
+<link rel="stylesheet" href="assets/css/header.css">
 
 
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <img class="fit-picture" src="assets/img/logo.png" width="20%" title="Title of image" alt="alt text here" />
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<div class="headerNotLogged d-flex align-items-center navbar">
-    <a href="index">
-        <img class="logoFoot img-fluid mx-2 d-block my-2 mr-2 ml-4" src="assets/img/logo.png" alt="LOGO" />
+    <div class="collapse navbar-collapse" id="navbarText">
+
+       
+    </div>
+    <a href="signup">
+        <img class="login img-fluid " width="50%" src="assets/img/login.png" alt="LOGIN" />
     </a>
-    <div class="nameAndTitle d-flex flex-column flex-lg-row justify-content-between align-items-center w-50 mr-auto">
-        <h1 class="nameProject h2 mb-0">TonSport</h1>
+</nav>-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <img class="fit-picture" src="assets/img/logo.png" width="12%" title="Title of image" alt="alt text here" />
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav text-center">
+            <li class="nav-item">
+                <a class="nav-link" href="index">Matchs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ligues">Championnats</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="scores">Scores Match</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="clubs">Clubs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="buteurs">Buteurs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="poll">Livre D'Or</a>
+            </li>
+            <li class="nav-item">
+                <a href="signup">
+                    <img class="login img-fluid " width="20%" src="assets/img/login.png" alt="LOGIN" />
+                </a>
+            </li>
+        </ul>
+
     </div>
-    <div class="iconsHeader d-flex justify-content-around align-items-center mr-2">
-        <a href="faq_visible">
-            <img class="btn fas" src="assets/img/aide.png" id="iconeAide" alt="LOGO" />
-        </a>
-        <i class="btn  fas fa-user-alt" data-toggle="modal" data-target="#modal_user_connect"
-            aria-label="connexion"></i>
-        <button aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"
-            class="navbar-toggler" data-target="#navbarSupportedContent15" data-toggle="collapse"><i
-                class="fas fa-bars  mb-0 h3"></i>
-        </button>
-    </div>
-</div>
-
-<!-- Menu déroulant -->
-<div class="headerNotLogged collapse navbar-collapse pr-3 border-top" id="navbarSupportedContent15">
-    <ul class="navbar-nav text-right">
-        <li class="nav-item active">
-            <a class="nav-link" data-toggle="modal" href="index#paniers">Les Clubs</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="index#actualite">Les actualités</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="index#nosInformations">Comment ça marche</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="index#quiSommesNous">Qui sommes nous</a>
-        </li>
-    </ul>
-</div>
-
-<!-- Connexion/Inscription -->
-<div class="modal fade" id="modal_user_connect" tabindex="-1" role="dialog" aria-label="Dialogue de connexion"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <!-- Boutons choix Connexion/Inscription -->
-                <div class="row justify-content-center">
-                    <div id="modal_forms_btn_group" class="list-group list-group-horizontal mb-3" role="group">
-                        <button id="btn_show_login" type="button" class="list-group-item list-group-item-action active"
-                            aria-label="Connexion" role="tab" data-toggle="list" href="#form_login-pane">
-                            Connexion
-                        </button>
-                        <button id="btn_show_register" type="button" class="list-group-item list-group-item-action"
-                            aria-label="Inscription" role="tab" data-toggle="list" href="#form_register-pane">
-                            Inscription
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab-content">
-                    <!-- FORMULAIRE DE CONNEXION -->
-                    <div id="form_login-pane" class="tab-pane fade show active">
-                        <div class="row mt-4">
-                            <div class="col-md-10 align-self-strech mx-auto">
-                                <!-- Input identifiants -->
-                                <div class="form-group">
-                                    <label for="identifiant" id="labelIdentifiant">Votre identifiant</label>
-                                    <input type="text" class="form-control form-control-md inputMain"
-                                        name="login_username" id="login_username" required=""
-                                        autocomplete="identifiant">
-                                    <p id="sp_error_login_username"></p>
-                                    <span class="error" id="sp_error_connexion"></span>
-                                </div>
-                                <!-- Input mdp -->
-                                <div class="form-group">
-                                    <label id="labelPwd" name="labelPwd" for="password">Votre mot de passe</label>
-                                    <input type="password" class="form-control form-control-md inputMain"
-                                        id="login_password" name="login_password" required=""
-                                        autocomplete="new-password" value="" onKeyUp="">
-                                    <!-- Montre/cache le mdp -->
-                                    <span toggle="#login_password" class="field-icon toggle-password"><img
-                                            src="assets\img\eye.png"></span>
-                                    <small id="passwordHelpBlockConnexion" class="form-text text-muted">
-                                    </small>
-                                    <p id="sp_error_login_password"></p>
-                                </div>
-                            </div>
-                            <div class="form-group small w-75 mx-auto">
-                                <a href="login_reinitializepsw" id="motDePasse">Mot de passe oublié?</a>
-                            </div>
-                            <div class="col-md-10 mx-auto text-center">
-                                <!-- Affichage ReCaptcha + bouton submit  -->
-                                <div class="col-md-11 mx-auto mt-3">
-                                    <div id="html_element_2"></div>
-                                    <br />
-                                    <button type="button" name='envoiFormulaire' class="connexion"
-                                        onclick="signin_login()">Connexion</button>
-
-                                    <input type="hidden" id="responseRecaptcha">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FORMULAIRE D'INSCRIPTION -->
-                    <div id="form_register-pane" class="tab-pane fade">
-                        <form class="form" id="formulaireInscription" method="POST" action="" onSubmit="">
-                            <div class="row mt-4">
-                                <div class="col-md-10 align-self-strech mt-2 mx-auto">
-                                    <div class="form-group" id="adm_admin_datalist">
-                                    </div>
-                                    <!-- Input prénom -->
-                                    <div class="form-group">
-                                        <label for="user_firstname" id="labelprenom">Prénom : </label>
-                                        <input type="text" class="form-control form-control-md inputMain"
-                                            name="user_firstname" id="user_firstname" disabled>
-                                    </div>
-                                    <!-- Input nom -->
-                                    <div class="form-group">
-                                        <label for="user_name" id="labelnom">Nom : </label>
-                                        <input type="text" class="form-control form-control-md inputMain"
-                                            name="user_name" id="user_name" autocomplete="family-name" disabled>
-                                    </div>
-                                    <!-- Input mdp -->
-                                    <div class="form-group">
-                                        <label id="labelPwd" name="labelPwd" for="password">Choisissez un mot de
-                                            passe</label>
-                                        <input type="password" class="form-control form-control-md inputMain"
-                                            id="password" name="password" required="" autocomplete="new-password"
-                                            value="" onKeyUp="signin_verifierSaisiePwd()">
-                                        <!-- Montre/cache le mdp -->
-                                        <span toggle="#password" class="field-icon toggle-password"><img
-                                                src="assets\img\eye.png"></span>
-                                        <span class="small ml-2 hide" id="result" name="result"></span>
-                                        <small id="passwordHelpBlockInscription" class="form-text text-muted">
-                                        </small>
-                                    </div>
-                                    <!-- Input confirmation mdp -->
-                                    <div class="form-group mb-2">
-                                        <label id="labelConfirmePwd" name="labelConfirmePwd"
-                                            for="confirmePassword">Confirmez le mot de
-                                            passe</label>
-                                        <input type="password" class="form-control form-control-md inputMain"
-                                            id="confirmePassword" name="confirmePassword" required=""
-                                            autocomplete="new-password" onKeyUp="signin_verifierSaisiePwd()">
-                                        <!-- Montre/cache la confirmation du mdp -->
-                                        <span toggle="#confirmePassword" class="field-icon toggle-password"><img
-                                                src="assets\img\eye.png"></span>
-                                        <div>
-                                            <span class="small ml-2 hide" id="statutPwd"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 text-center">
-                                        <!-- Checkbox acceptation CGUS -->
-                                        <div class="form-check mb-3">
-                                            <input class="form-check-input" type="checkbox" id="checkLecture"
-                                                name="checkLecture">
-                                            <label class="form-check-label" for="checkLecture" id="labelCheck">J'ai lu
-                                                et accepte les <a href="cgv_visible" id="lienCGV">conditions générales
-                                                    d'utilisation </a>du site</label>
-                                        </div>
-                                        <!-- Affichage ReCaptcha + bouton submit  -->
-                                        <div id="html_element">
-                                        </div><br />
-                                        <a href="#modalConfirmationInscription" class="connexion w-50"
-                                            data-toggle="modal"
-                                            onclick="signin_verifierFormulaire(), signin_verifierPwdVide()"><span>Inscription</span>
-                                        </a>
-                                        <input type="hidden" id="responseRecaptcha">
-                                    </div>
-
-                                    <!-- Modale qui confirme l'inscription -->
-                                    <div class="modal" id="modalConfirmationInscription" tabindex="-1" role="dialog"
-                                        aria-labelledby="fenetreModale" aria-hidden="true">
-                                        <div class="">
-                                            <div class="modal-content mx-auto w-75" id="modalConfirm">
-                                                <div class="modal-header mx-auto">
-                                                    <h5>Votre inscription est bientôt terminée</h5>
-                                                </div>
-                                                <form class="d-flex justify-content-around" id="adm_client_form">
-                                                    <div class="modal-body">
-                                                        <p id="messageConfirmation">Cliquez sur le lien que nous venons
-                                                            de vous envoyer par mail afin de finaliser votre inscription
-                                                        </p>
-                                                    </div>
-                                                </form>
-                                                <input type="button" value="Ok" data-dismiss="modal" aria-hidden="true"
-                                                    class="connexion w-50 mx-auto mb-3">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-</script>
+</nav>

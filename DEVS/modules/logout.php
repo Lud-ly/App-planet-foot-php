@@ -55,7 +55,7 @@ Class Logout	{
 		// Ici je fais mon appel $objet_service->ma_methode_qui_est_dans_le_service
 		$_SESSION= [];
 		session_destroy();
-
+        header("Location: login");
 		
 		// Je passe mes parametres pour y avoir acces dans mes pages HTML
 		$this->resultat = $objet_service->resultat;
@@ -63,6 +63,3 @@ Class Logout	{
     }
 	
 }
-
-?>
-

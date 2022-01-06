@@ -1,0 +1,26 @@
+<script src="assets/js/poll.js"></script>
+<script src="assets/js/utils.js"></script>
+<link rel="stylesheet" href="assets/css/poll.css">
+
+
+<section>
+    <h1 class="animate__animated animate__bounce">Livre d'Or</h1>
+    <div class="pollContent container">
+
+        <div class="form-group">
+            <input type="text" name="username" id="username" placeholder="Votre Pseudo" class="form-control">
+            <span class="error"></span>
+            <textarea name="message" id="message" cols="10" rows="10" class="form-control"
+                placeholder="Votre Avis sur le match"></textarea>
+            <span class="error"></span>
+        </div>
+
+        <p class="text-center"><select class="custom-select" name="" id="polls" onchange="editPolls(this)"></select>
+        </p>
+        <div id="answers" class="d-flex justify-content-center"></div>
+        <p class="text-center"> <button onclick="sendMessage()" id="vote" class="btn btn-dark">Envoyer</button></p>
+
+
+        <div id="ddr"></div>
+    </div>
+</section>
